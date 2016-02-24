@@ -14,6 +14,7 @@ public class Main extends Application {
         primaryStage.setTitle("IMat");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
+        primaryStage.setFullScreen(true);
     }
 
 
