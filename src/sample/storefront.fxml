@@ -26,35 +26,35 @@
       </AnchorPane>
       <VBox layoutX="17.0" layoutY="86.0" prefWidth="320.0" style="-fx-background-color: #505050;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="80.0">
          <children>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Dryck">
+            <Button fx:id="meatButton" layoutX="10.0" layoutY="160.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Kött">
                <font>
                   <Font size="24.0" />
                </font></Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Kolhydrater">
+            <Button fx:id="fishButton" layoutX="10.0" layoutY="310.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Fisk">
                <font>
                   <Font size="24.0" />
                </font></Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Frukt &amp; grönt">
+            <Button fx:id="drinkButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Dryck">
                <font>
                   <Font size="24.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="160.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Kött">
+            <Button fx:id="carbsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Kolhydrater">
                <font>
                   <Font size="24.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="235.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Bröd">
+            <Button fx:id="fruitButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Frukt &amp; grönt">
                <font>
                   <Font size="24.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="310.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Fisk">
+            <Button fx:id="breadButton" layoutX="10.0" layoutY="235.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Bröd">
                <font>
                   <Font size="24.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="385.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Kryddor &amp; örter">
+            <Button fx:id="spiceButton" layoutX="10.0" layoutY="385.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Kryddor &amp; örter">
                <font>
                   <Font size="24.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Sötsaker">
+            <Button fx:id="sweetsButton" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Sötsaker">
                <font>
                   <Font size="24.0" />
                </font></Button>
