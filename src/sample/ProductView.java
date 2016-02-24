@@ -10,5 +10,7 @@ import se.chalmers.ait.dat215.project.Product;
 public abstract class ProductView extends Node
 {
     public abstract Product getProduct();
-    public abstract ProductView createView(Product p);
+    public abstract int getImageHeight();
+    public abstract int getImageWidth();
+    public abstract ProductView createView(String name, Product p,Image im,double price);
 }
