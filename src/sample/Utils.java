@@ -1,12 +1,9 @@
 package sample;
 
 import javafx.scene.Node;
-import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
-import org.w3c.dom.Text;
 import se.chalmers.ait.dat215.project.*;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,23 +27,23 @@ public class Utils
         List<Product> products = getProductsFromCategory(category);
         for(Product p: products)
         {
-            Node n = view.createView(p.getName(),
+            Node n = view.createView(p.getName(),p,
                     dataHandler.getFXImage(p,view.getImageWidth(),view.getImageHeight(),true),
-                    p.getPrice(),p.getProductId());
+                    p.getPrice());
             pane.getChildren().add(n);
         }
     }
 
     enum Category
     {
-        drycker,
-        kolhydrated,
-        frukt,
-        kött,
-        bröd,
-        fisk,
-        kryddor,
-        sötsaker,
+        drinks,
+        carbons,
+        fruits,
+        meats,
+        breads,
+        fishes,
+        herbs,
+        sweets,
     }
 
     public static List<Product> getProductsFromCategory(Category cat)
@@ -66,30 +63,30 @@ public class Utils
         //not all of theirs are mapped to ours fix later.
         switch (cat)
         {
-            case drycker:
+            case drinks:
                 productCategories.add(ProductCategory.COLD_DRINKS);
                 productCategories.add(ProductCategory.HOT_DRINKS);
                 break;
-            case kolhydrated:
+            case carbons:
                 productCategories.add(ProductCategory.PASTA);
                 productCategories.add(ProductCategory.POTATO_RICE);
                 break;
-            case frukt:
+            case fruits:
                 productCategories.add(ProductCategory.FRUIT);
                 break;
-            case kött:
+            case meats:
                 productCategories.add(ProductCategory.MEAT);
                 break;
-            case bröd:
+            case breads:
                 productCategories.add(ProductCategory.BREAD);
                 break;
-            case fisk:
+            case fishes:
                 productCategories.add(ProductCategory.FISH);
                 break;
-            case kryddor:
+            case herbs:
                 productCategories.add(ProductCategory.HERB);
                 break;
-            case sötsaker:
+            case sweets:
                 productCategories.add(ProductCategory.SWEET);
                 break;
         }
