@@ -8,7 +8,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane layoutX="712.0" layoutY="100.0" prefHeight="80.0" prefWidth="1920.0" style="-fx-background-color: #1234;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -27,14 +26,38 @@
       </AnchorPane>
       <VBox layoutX="17.0" layoutY="86.0" prefWidth="320.0" style="-fx-background-color: #505050;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="80.0">
          <children>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Button" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Button" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Button" />
-            <Button layoutX="10.0" layoutY="160.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Button" />
-            <Button layoutX="10.0" layoutY="235.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Button" />
-            <Button layoutX="10.0" layoutY="310.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Button" />
-            <Button layoutX="10.0" layoutY="385.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Button" />
-            <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Button" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Dryck">
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Kolhydrater">
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Frukt &amp; grönt">
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
+            <Button layoutX="10.0" layoutY="160.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Kött">
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
+            <Button layoutX="10.0" layoutY="235.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Bröd">
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
+            <Button layoutX="10.0" layoutY="310.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Fisk">
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
+            <Button layoutX="10.0" layoutY="385.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Kryddor &amp; örter">
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
+            <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Sötsaker">
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
             <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Button" />
          </children>
       </VBox>
@@ -89,7 +112,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <ScrollPane hbarPolicy="NEVER" layoutX="331.0" layoutY="166.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="155.0">
+      <ScrollPane hbarPolicy="NEVER" layoutX="323.0" layoutY="155.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="155.0">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
         </content>
