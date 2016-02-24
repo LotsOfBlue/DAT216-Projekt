@@ -34,6 +34,21 @@ public class Utils
         }
     }
 
+    public static void setToValuesFromSearch(Pane pane, String search, ProductView view)
+    {
+        pane.getChildren().clear();
+        List<Product> products = dataHandler.findProducts(search);
+        for(Product p: products)
+        {
+            Node n = view.createView(p.getName(),p,
+                    dataHandler.getFXImage(p,view.getImageWidth(),view.getImageHeight(),true),
+                    p.getPrice());
+            pane.getChildren().add(n);
+        }
+    }
+
+
+
     enum Category
     {
         drinks,
