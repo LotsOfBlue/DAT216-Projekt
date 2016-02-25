@@ -11,6 +11,7 @@ import se.chalmers.ait.dat215.project.Product;
 import sun.misc.JavaIOAccess;
 
 import java.io.IOException;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * @author Daniel.
@@ -18,12 +19,10 @@ import java.io.IOException;
 public class ProductView extends HBox
 {
     private Product product;
-    private Label name;
-    private Image image;
-    private Label price;
 
     public ProductView (String name, Product product ,Image im, double price)
     {
+        this.product = product;
         try
         {
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -31,6 +30,7 @@ public class ProductView extends HBox
             ItemController controller= (ItemController) fxmlLoader.getController();
             controller.nameLabel.setText(name);
             controller.priceLabel.setText(Double.toString(price));
+            controller.Add_button.setOnAction(e->Utils.addItemToCart(Controller.cartItemPane,product));
             getChildren().add(pane);
         }
         catch (IOException ex)

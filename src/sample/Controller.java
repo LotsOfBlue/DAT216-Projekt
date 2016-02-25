@@ -28,7 +28,9 @@ public class Controller implements Initializable
     Button spiceButton;
     @FXML
     AnchorPane ItemArea;
-
+    @FXML
+    public AnchorPane cartPane;
+    public static AnchorPane cartItemPane;
     @Override // This method is called by the FXMLLoader when initialization is complete
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         meatButton.  setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.meats));
@@ -39,5 +41,6 @@ public class Controller implements Initializable
         breadButton. setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.breads));
         spiceButton. setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.herbs));
         carbsButton. setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.carbs));
+        cartItemPane = cartPane;
     }
 }

@@ -18,6 +18,8 @@ public class Utils
     public static void addItemToCart(Pane shoppingPane, Product product)
     {
         dataHandler.getShoppingCart().addProduct(product);
+        Pane p = new ShoppingView(product.getName(),product,null,product.getPrice());
+        shoppingPane.getChildren().add(p);
     }
 
     public static void setToValuesOfCategory(Pane pane, Category category)
