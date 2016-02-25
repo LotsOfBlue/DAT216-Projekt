@@ -1,7 +1,7 @@
 package sample;
 
-import javafx.scene.Node;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import se.chalmers.ait.dat215.project.*;
 
 import java.util.ArrayList;
@@ -15,42 +15,46 @@ public class Utils
     static IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     ProductCategory[] categories = ProductCategory.values();
 
-    public static void addItemToCart(Pane shoppingPane, Product product, ShoppingView view)
+    public static void addItemToCart(Pane shoppingPane, Product product)
     {
         dataHandler.getShoppingCart().addProduct(product);
     }
 
-
-    public static void setToValuesOfCategory(Pane pane, Category category, ProductView view)
+    public static void setToValuesOfCategory(Pane pane, Category category)
     {
         pane.getChildren().clear();
+        VBox box = new VBox();
         List<Product> products = getProductsFromCategory(category);
         for(Product p: products)
         {
-            Node n = view.createView(p.getName(),p,
-                    dataHandler.getFXImage(p,view.getImageWidth(),view.getImageHeight(),true),
+            ProductView view =  new ProductView(p.getName(),p,
+                    null,
                     p.getPrice());
-            pane.getChildren().add(n);
+            box.getChildren().add(view);
         }
+        pane.getChildren().add(box);
     }
 
-    public static void setToValuesFromSearch(Pane pane, String search, ProductView view)
+    public static void setToValuesFromSearch(Pane pane, String search)
     {
         pane.getChildren().clear();
+        VBox box = new VBox();
         List<Product> products = dataHandler.findProducts(search);
         for(Product p: products)
         {
-            Node n = view.createView(p.getName(),p,
-                    dataHandler.getFXImage(p,view.getImageWidth(),view.getImageHeight(),true),
+            ProductView view =  new ProductView(p.getName(),p,
+                    dataHandler.getFXImage(p, ProductView.getImageWidth(), ProductView.getImageHeight(), true),
                     p.getPrice());
-            pane.getChildren().add(n);
+            box.getChildren().add(view);
         }
+        pane.getChildren().add(box);
     }
 
-    enum Category
+
+    public enum Category
     {
         drinks,
-        carbons,
+        carbs,
         fruits,
         meats,
         breads,
@@ -80,7 +84,7 @@ public class Utils
                 productCategories.add(ProductCategory.COLD_DRINKS);
                 productCategories.add(ProductCategory.HOT_DRINKS);
                 break;
-            case carbons:
+            case carbs:
                 productCategories.add(ProductCategory.PASTA);
                 productCategories.add(ProductCategory.POTATO_RICE);
                 break;

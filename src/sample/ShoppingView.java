@@ -1,14 +1,16 @@
 package sample;
 
-import javafx.scene.Node;
-import se.chalmers.ait.dat215.project.Product;
-import se.chalmers.ait.dat215.project.ShoppingCart;
+import javafx.scene.layout.Pane;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
  * @author Daniel.
- */
-public abstract class ShoppingView extends Node
+     */
+public class ShoppingView
 {
-    public abstract ShoppingView createView(ShoppingItem item);
+    public ShoppingView()
+    {
+
+    }
+
 }
