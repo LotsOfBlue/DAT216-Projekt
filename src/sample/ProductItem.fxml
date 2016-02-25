@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="main_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="104.0" prefWidth="332.0" style="-fx-background-color: #aaaaaa;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ItemController">
+   <children>
+      <Button fx:id="Add_button" layoutX="196.0" layoutY="65.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Lägg till i kundvagnen" />
+      <RadioButton fx:id="spinner_placeHolder" layoutX="192.0" layoutY="25.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="126.0" text="spinner placeholder" />
+      <Label fx:id="nameLabel" layoutX="119.0" layoutY="25.0" prefHeight="17.0" prefWidth="70.0" text="Name" />
+      <Label fx:id="priceLabel" layoutX="119.0" layoutY="69.0" prefHeight="17.0" prefWidth="42.0" text="Price" />
+      <ImageView fitHeight="82.0" fitWidth="91.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
