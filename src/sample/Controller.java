@@ -31,14 +31,13 @@ public class Controller implements Initializable
 
     @Override // This method is called by the FXMLLoader when initialization is complete
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
-        meatButton.setOnAction(e->Utils.setToValuesOfCategory(ItemArea, Utils.Category.meats));
-        fishButton.setOnAction(e->Utils.setToValuesOfCategory(ItemArea, Utils.Category.fishes));
-        drinkButton.setOnAction(e->Utils.setToValuesOfCategory(ItemArea, Utils.Category.drinks));
-        sweetsButton.setOnAction(e->Utils.setToValuesOfCategory(ItemArea, Utils.Category.sweets));
-        fruitButton.setOnAction(e->Utils.setToValuesOfCategory(ItemArea, Utils.Category.fruits));
-        breadButton.setOnAction(e->Utils.setToValuesOfCategory(ItemArea, Utils.Category.breads));
-        spiceButton.setOnAction(e->Utils.setToValuesOfCategory(ItemArea, Utils.Category.herbs));
-        carbsButton.setOnAction(e->Utils.setToValuesOfCategory(ItemArea, Utils.Category.carbs));
-
+        meatButton.  setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.meats));
+        fishButton.  setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.fishes));
+        drinkButton. setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.drinks));
+        sweetsButton.setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.sweets));
+        fruitButton. setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.fruits));
+        breadButton. setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.breads));
+        spiceButton. setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.herbs));
+        carbsButton. setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.carbs));
     }
 }

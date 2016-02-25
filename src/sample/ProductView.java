@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -7,6 +8,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import se.chalmers.ait.dat215.project.Product;
+import sun.misc.JavaIOAccess;
+
+import java.io.IOException;
 
 /**
  * @author Daniel.
@@ -20,13 +24,19 @@ public class ProductView extends HBox
 
     public ProductView (String name, Product product ,Image im, double price)
     {
-        this.product = product;
-        this.name = new Label(name);
-        this.image = im;
-        this.price = new Label(Double.toString(price));
-        Node[] children = {this.name,this.price};
-        getChildren().addAll(children);
-
+        try
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            Pane pane = fxmlLoader.load(getClass().getResource("ProductItem.fxml").openStream());
+            ItemController controller= (ItemController) fxmlLoader.getController();
+            controller.nameLabel.setText(name);
+            controller.priceLabel.setText(Double.toString(price));
+            getChildren().add(pane);
+        }
+        catch (IOException ex)
+        {
+            System.out.println("couldn't load it yoo.");
+        }
     }
 
     public Product getProduct(){

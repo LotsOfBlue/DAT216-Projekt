@@ -43,7 +43,7 @@ public class Utils
         for(Product p: products)
         {
             ProductView view =  new ProductView(p.getName(),p,
-                    dataHandler.getFXImage(p, ProductView.getImageWidth(), ProductView.getImageHeight(), true),
+                    null,
                     p.getPrice());
             box.getChildren().add(view);
         }
