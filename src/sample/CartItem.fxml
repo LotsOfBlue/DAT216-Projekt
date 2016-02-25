@@ -5,10 +5,10 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="main_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="332.0" style="-fx-background-color: #aaaaaa;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CartItemController">
+<AnchorPane fx:id="main_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="226.0" style="-fx-background-color: #aaaaaa;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CartItemController">
    <children>
-      <RadioButton fx:id="spinner_placeHolder" layoutX="192.0" layoutY="13.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="126.0" text="spinner placeholder" />
+      <RadioButton fx:id="spinner_placeHolder" layoutX="136.0" layoutY="13.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="70.0" text="spinner placeholder" />
       <Label fx:id="nameLabel" layoutX="14.0" layoutY="13.0" prefHeight="17.0" prefWidth="70.0" text="Name" />
-      <Label fx:id="priceLabel" layoutX="131.0" layoutY="13.0" prefHeight="17.0" prefWidth="42.0" text="Price" />
+      <Label fx:id="priceLabel" layoutX="84.0" layoutY="13.0" prefHeight="17.0" prefWidth="42.0" text="Price" />
    </children>
 </AnchorPane>

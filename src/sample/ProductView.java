@@ -30,7 +30,7 @@ public class ProductView extends HBox
             ItemController controller= (ItemController) fxmlLoader.getController();
             controller.nameLabel.setText(name);
             controller.priceLabel.setText(Double.toString(price));
-            controller.Add_button.setOnAction(e->Utils.addItemToCart(Controller.cartItemPane,product));
+            controller.Add_button.setOnAction(e->Utils.addItemToCart(product));
             getChildren().add(pane);
         }
         catch (IOException ex)
