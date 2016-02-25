@@ -13,8 +13,9 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("storefront.fxml"));
         primaryStage.setTitle("IMat");
         primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+        primaryStage.setResizable(false);
         primaryStage.setMaximized(true);
+        primaryStage.show();
     }
 
 
