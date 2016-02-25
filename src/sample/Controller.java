@@ -3,6 +3,7 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,6 +25,8 @@ public class Controller implements Initializable
     @FXML
     Button spiceButton;
 
+    @FXML
+    ScrollPane ItemArea;
 
     @Override // This method is called by the FXMLLoader when initialization is complete
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
