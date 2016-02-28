@@ -16,21 +16,22 @@ public class CartItemController implements Initializable
     @FXML
     public Label nameLabel;
     @FXML
-    public RadioButton spinner_placeHolder;
-    @FXML
     public Label priceLabel;
     @FXML
     public Pane main_pane;
+    @FXML
+    public Spinner spinner;
+
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources)
     {
         Spinner spinner = new Spinner(0,100,0);
-        spinner.setLayoutX(spinner_placeHolder.getLayoutX());
-        spinner.setLayoutY(spinner_placeHolder.getLayoutY());
-        spinner.setPrefWidth(spinner_placeHolder.getPrefWidth());
-        spinner.setPrefHeight(spinner_placeHolder.getPrefHeight());
+        spinner.setLayoutX(spinner.getLayoutX());
+        spinner.setLayoutY(spinner.getLayoutY());
+        spinner.setPrefWidth(spinner.getPrefWidth());
+        spinner.setPrefHeight(spinner.getPrefHeight());
 
-        main_pane.getChildren().remove(spinner_placeHolder);
+        main_pane.getChildren().remove(spinner);
         main_pane.getChildren().add(spinner);
     }
 }
