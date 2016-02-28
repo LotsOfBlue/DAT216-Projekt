@@ -1,17 +1,12 @@
 package sample;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import se.chalmers.ait.dat215.project.Product;
-import sun.misc.JavaIOAccess;
 
 import java.io.IOException;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * @author Daniel.
@@ -29,8 +24,8 @@ public class ProductView extends HBox
             Pane pane = fxmlLoader.load(getClass().getResource("ProductItem.fxml").openStream());
             ItemController controller= (ItemController) fxmlLoader.getController();
             controller.nameLabel.setText(name);
-            controller.priceLabel.setText(Double.toString(price));
-            controller.Add_button.setOnAction(e->Utils.addItemToCart(product));
+            controller.singlePrice.setText(Double.toString(price));
+            controller.addButton.setOnAction(e->Utils.addItemToCart(product));
             getChildren().add(pane);
         }
         catch (IOException ex)
