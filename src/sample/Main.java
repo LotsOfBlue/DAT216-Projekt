@@ -10,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.util.Timer;
@@ -33,10 +32,13 @@ public class Main extends Application {
         primaryStage.setMaximized(true);
         primaryStage.show();
 
+        //Storefront
         FXMLLoader fxmlLoader = new FXMLLoader();
         storeFront = fxmlLoader.load(getClass().getResource("storefront_NoCart.fxml").openStream());
         Controller controller= (Controller) fxmlLoader.getController();
         storeFront.setPrefHeight(root.getPrefHeight());
+
+        //Shopping cart
         FXMLLoader fxmlLoader_2 = new FXMLLoader();
         Pane cart = fxmlLoader_2.load(getClass().getResource("Cart.fxml").openStream());
         cart_controller= (CartController) fxmlLoader_2.getController();
@@ -44,15 +46,19 @@ public class Main extends Application {
         cart.setLayoutX(0);
         storeFront.setPrefWidth(root.getWidth()-cart.getPrefWidth());
         cart.setMinWidth(cart.getPrefWidth());
+
+        //Checkout
         FXMLLoader fxmlLoader_3 = new FXMLLoader();
         Pane checkOut = fxmlLoader_3.load(getClass().getResource("Checkout_NoCart.fxml").openStream());
         CheckOutController  checkOut_controller = (CheckOutController ) fxmlLoader_3.getController();
         checkOut.setLayoutX(0);
+
+        //Arrange all the panes
         Node[] children = {storeFront,cart,checkOut};
         root.getChildren().addAll(children);
         checkOut.setPrefHeight(root.getHeight());
     }
-    public static boolean inShop = true;
+    private static boolean inShop = true;
     public static void toggleView()
     {
         if(inShop)
