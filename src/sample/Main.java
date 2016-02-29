@@ -15,6 +15,7 @@ public class Main extends Application {
 
     public static HBox root;
     public static Pane storeFront;
+    public static Controller storeController;
     public static CartController cartController;
     private static final String toCheckout = "Gå till kassan";
     private static final String toStore = "Gå tillbaka";
@@ -33,7 +34,7 @@ public class Main extends Application {
         //Storefront
         FXMLLoader fxmlLoader = new FXMLLoader();
         storeFront = fxmlLoader.load(getClass().getResource("storefront_NoCart.fxml").openStream());
-        Controller controller= (Controller) fxmlLoader.getController();
+        storeController = (Controller) fxmlLoader.getController();
         storeFront.setPrefHeight(root.getPrefHeight());
 
         //Shopping cart

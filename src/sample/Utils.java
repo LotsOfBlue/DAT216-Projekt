@@ -14,7 +14,7 @@ import java.util.List;
 public class Utils
 {
     static IMatDataHandler dataHandler = IMatDataHandler.getInstance();
-    ProductCategory[] categories = ProductCategory.values();
+    static ProductCategory[] categories = ProductCategory.values();
 
     public static void addItemToCart(Product product)
     {
@@ -24,7 +24,7 @@ public class Utils
         Main.cartController.itemPane.getChildren().add(new Separator());
     }
 
-    public static void setToValuesOfCategory(Pane pane, Category category)
+    public static void setToValuesOfCategory(Pane pane, Category category, String str)
     {
         pane.getChildren().clear();
         VBox box = new VBox();
@@ -36,6 +36,7 @@ public class Utils
             box.getChildren().add(new Separator());
         }
         pane.getChildren().add(box);
+        Main.storeController.currentCategory.setText(str);
     }
 
     public static void setToValuesFromSearch(Pane pane, String search)
@@ -50,6 +51,7 @@ public class Utils
             box.getChildren().add(new Separator());
         }
         pane.getChildren().add(box);
+        Main.storeController.currentCategory.setText("Sökresultat");
     }
 
     public enum Category
