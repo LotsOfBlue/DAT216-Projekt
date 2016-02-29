@@ -6,8 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Control;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -26,8 +24,8 @@ public class Main extends Application {
         //Parent root = FXMLLoader.load(getClass().getResource("storefront.fxml"));
         root = new HBox();
 
-        primaryStage.setTitle("IMat");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setTitle("iMat");
+        primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(true);
         primaryStage.setMaximized(true);
         primaryStage.show();
@@ -58,7 +56,9 @@ public class Main extends Application {
         root.getChildren().addAll(children);
         checkOut.setPrefHeight(root.getHeight());
     }
+
     private static boolean inShop = true;
+
     public static void toggleView()
     {
         if(inShop)
@@ -102,6 +102,7 @@ public class Main extends Application {
             }
         }, 0, 1);
     }
+
     public static void main(String[] args) {
         launch(args);
     }
