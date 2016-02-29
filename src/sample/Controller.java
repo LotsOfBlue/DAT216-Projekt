@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,8 +30,11 @@ public class Controller implements Initializable
     Button spiceButton;
     @FXML
     public VBox ItemArea;
+    @FXML
+    public static Text currentCategory;
     public AnchorPane cartPane;
     public static AnchorPane cartItemPane;
+
     @Override // This method is called by the FXMLLoader when initialization is complete
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         meatButton.  setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.meats));

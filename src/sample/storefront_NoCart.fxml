@@ -62,7 +62,7 @@
       </VBox>
       <AnchorPane layoutX="356.0" layoutY="99.0" prefHeight="75.0" prefWidth="1242.0" style="-fx-background-color: #a0a0a0;" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
          <children>
-            <Text layoutX="5.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sökresultat" textAlignment="CENTER" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0">
+            <Text fx:id="currentCategory" layoutX="5.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sökresultat" textAlignment="CENTER" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0">
                <font>
                   <Font name="System Bold" size="48.0" />
                </font>
