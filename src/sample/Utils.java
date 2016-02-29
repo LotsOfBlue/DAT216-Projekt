@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.scene.control.Separator;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import se.chalmers.ait.dat215.project.*;
@@ -29,8 +30,9 @@ public class Utils
         List<Product> products = getProductsFromCategory(category);
         for(Product p: products)
         {
-            ProductView view =  new ProductView(p);
+            ProductView view = new ProductView(p);
             box.getChildren().add(view);
+            box.getChildren().add(new Separator());
         }
         pane.getChildren().add(box);
     }
@@ -47,7 +49,6 @@ public class Utils
         }
         pane.getChildren().add(box);
     }
-
 
     public enum Category
     {
@@ -107,7 +108,4 @@ public class Utils
         }
         return productCategories;
     }
-
-
-
 }
