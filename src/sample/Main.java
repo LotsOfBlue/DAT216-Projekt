@@ -1,10 +1,8 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -15,9 +13,11 @@ import java.util.TimerTask;
 
 public class Main extends Application {
 
-    public static CartController cart_controller;
     public static HBox root;
     public static Pane storeFront;
+    public static CartController cartController;
+    private static final String toCheckout = "Gå till kassan";
+    private static final String toStore = "Gå tillbaka";
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -39,16 +39,17 @@ public class Main extends Application {
         //Shopping cart
         FXMLLoader fxmlLoader_2 = new FXMLLoader();
         Pane cart = fxmlLoader_2.load(getClass().getResource("Cart.fxml").openStream());
-        cart_controller= (CartController) fxmlLoader_2.getController();
+        cartController = (CartController) fxmlLoader_2.getController();
         cart.setPrefHeight(root.getHeight());
         cart.setLayoutX(0);
+        cartController.move_button.setText(toCheckout);
         storeFront.setPrefWidth(root.getWidth()-cart.getPrefWidth());
         cart.setMinWidth(cart.getPrefWidth());
 
         //Checkout
         FXMLLoader fxmlLoader_3 = new FXMLLoader();
         Pane checkOut = fxmlLoader_3.load(getClass().getResource("Checkout_NoCart.fxml").openStream());
-        CheckOutController  checkOut_controller = (CheckOutController ) fxmlLoader_3.getController();
+        CheckOutController  checkOutController = (CheckOutController) fxmlLoader_3.getController();
         checkOut.setLayoutX(0);
 
         //Arrange all the panes
@@ -64,10 +65,12 @@ public class Main extends Application {
         if(inShop)
         {
             gotoCheckout();
+            cartController.move_button.setText(toStore);
         }
         else
         {
             gotoStore();
+            cartController.move_button.setText(toCheckout);
         }
     }
 

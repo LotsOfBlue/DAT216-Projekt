@@ -1,7 +1,5 @@
 package sample;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import se.chalmers.ait.dat215.project.*;
@@ -21,7 +19,7 @@ public class Utils
     {
         dataHandler.getShoppingCart().addProduct(product);
         Pane p = new ShoppingView(product.getName(),product,null,product.getPrice());
-        Main.cart_controller.itemPane.getChildren().add(p);
+        Main.cartController.itemPane.getChildren().add(p);
     }
 
     public static void setToValuesOfCategory(Pane pane, Category category)
