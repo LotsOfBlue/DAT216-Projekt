@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="main_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="1200.0" style="-fx-background-color: #aaaaaa;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ItemController">
+<AnchorPane fx:id="main_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="1300.0" style="-fx-background-color: #eeeeee;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ItemController">
    <children>
       <Button fx:id="addButton" layoutX="196.0" layoutY="65.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="170.0" text="Lägg till i kundvagnen" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="20.0">
          <font>
@@ -29,7 +29,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Label fx:id="totalPrice" layoutX="1010.0" layoutY="29.0" prefHeight="32.0" prefWidth="100.0" text="TotalPrice">
+      <Label fx:id="totalPrice" layoutX="1110.0" layoutY="29.0" prefHeight="32.0" prefWidth="100.0" text="TotalPrice">
          <font>
             <Font size="22.0" />
          </font>
