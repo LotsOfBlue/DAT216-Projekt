@@ -12,17 +12,17 @@ import java.io.IOException;
 /**
  * @author Daniel.
      */
-public class ShoppingView extends HBox
+public class CartItemView extends HBox
 {
-    public ShoppingView (String name, Product product ,Image im, double price)
+    public CartItemView(Product product)
     {
         try
         {
             FXMLLoader fxmlLoader = new FXMLLoader();
             Pane pane = fxmlLoader.load(getClass().getResource("CartItem.fxml").openStream());
-            CartItemController controller= (CartItemController) fxmlLoader.getController();
-            controller.nameLabel.setText(name);
-            controller.priceLabel.setText(Double.toString(price));
+            CartItemController controller = (CartItemController) fxmlLoader.getController();
+            controller.nameLabel.setText(product.getName());
+            controller.priceLabel.setText(product.getPrice() + " kr");
             getChildren().add(pane);
         }
         catch (IOException ex)

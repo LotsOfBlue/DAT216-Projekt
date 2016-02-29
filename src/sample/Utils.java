@@ -19,8 +19,9 @@ public class Utils
     public static void addItemToCart(Product product)
     {
         dataHandler.getShoppingCart().addProduct(product);
-        Pane p = new ShoppingView(product.getName(),product,null,product.getPrice());
+        Pane p = new CartItemView(product);
         Main.cartController.itemPane.getChildren().add(p);
+        Main.cartController.itemPane.getChildren().add(new Separator());
     }
 
     public static void setToValuesOfCategory(Pane pane, Category category)
@@ -44,8 +45,9 @@ public class Utils
         List<Product> products = dataHandler.findProducts(search);
         for(Product p: products)
         {
-            ProductView view =  new ProductView(p);
+            ProductView view = new ProductView(p);
             box.getChildren().add(view);
+            box.getChildren().add(new Separator());
         }
         pane.getChildren().add(box);
     }
