@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,8 +28,7 @@ public class Controller implements Initializable
     @FXML
     Button spiceButton;
     @FXML
-    AnchorPane ItemArea;
-    @FXML
+    public VBox ItemArea;
     public AnchorPane cartPane;
     public static AnchorPane cartItemPane;
     @Override // This method is called by the FXMLLoader when initialization is complete
