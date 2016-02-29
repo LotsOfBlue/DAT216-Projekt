@@ -2,9 +2,7 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.Spinner;
 import javafx.scene.layout.Pane;
 
@@ -25,13 +23,13 @@ public class CartItemController implements Initializable
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources)
     {
-        Spinner spinner = new Spinner(0,100,0);
-        spinner.setLayoutX(spinner.getLayoutX());
-        spinner.setLayoutY(spinner.getLayoutY());
-        spinner.setPrefWidth(spinner.getPrefWidth());
-        spinner.setPrefHeight(spinner.getPrefHeight());
+        Spinner realSpinner = new Spinner(1,100,1);
+        realSpinner.setLayoutX(spinner.getLayoutX());
+        realSpinner.setLayoutY(spinner.getLayoutY());
+        realSpinner.setPrefWidth(spinner.getPrefWidth());
+        realSpinner.setPrefHeight(spinner.getPrefHeight());
 
         main_pane.getChildren().remove(spinner);
-        main_pane.getChildren().add(spinner);
+        main_pane.getChildren().add(realSpinner);
     }
 }

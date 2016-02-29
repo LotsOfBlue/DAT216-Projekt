@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.Spinner;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -35,13 +34,13 @@ public class ItemController implements Initializable
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources)
     {
-        Spinner spinner = new Spinner(1,100,1);
-        spinner.setLayoutX(spinner.getLayoutX());
-        spinner.setLayoutY(spinner.getLayoutY());
-        spinner.setPrefWidth(spinner.getPrefWidth());
-        spinner.setPrefHeight(spinner.getPrefHeight());
+        Spinner realSpinner = new Spinner(1,100,1);
+        realSpinner.setPrefWidth(spinner.getPrefWidth());
+        realSpinner.setPrefHeight(spinner.getPrefHeight());
+        realSpinner.setLayoutX(spinner.getLayoutX());
+        realSpinner.setLayoutY(spinner.getLayoutY());
 
         main_pane.getChildren().remove(spinner);
-        main_pane.getChildren().add(spinner);
+        main_pane.getChildren().add(realSpinner);
     }
 }
