@@ -2,6 +2,7 @@ package sample;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import se.chalmers.ait.dat215.project.Product;
@@ -15,16 +16,17 @@ public class ProductView extends HBox
 {
     private Product product;
 
-    public ProductView (String name, Product product ,Image im, double price)
+    public ProductView (Product product)
     {
         this.product = product;
         try
         {
             FXMLLoader fxmlLoader = new FXMLLoader();
             Pane pane = fxmlLoader.load(getClass().getResource("ProductItem.fxml").openStream());
-            ItemController controller= (ItemController) fxmlLoader.getController();
-            controller.nameLabel.setText(name);
-            controller.singlePrice.setText(Double.toString(price));
+            ItemController controller = (ItemController) fxmlLoader.getController();
+            controller.nameLabel.setText(product.getName());
+            controller.singlePrice.setText(Double.toString(product.getPrice()) + " " + product.getUnit());
+            controller.image.setImage(new Image("resources - projekt (fx)/images/" + product.getImageName()));
             controller.addButton.setOnAction(e->Utils.addItemToCart(product));
             getChildren().add(pane);
         }
@@ -38,15 +40,13 @@ public class ProductView extends HBox
         return product;
     }
 
-    final static int HEIGHT = 100;
+    final static int HEIGHT = 110;
     public static int getImageHeight(){
         return HEIGHT;
     }
 
-    final static int WIDTH = 100;
+    final static int WIDTH = 110;
     public static int getImageWidth(){
         return WIDTH;
     }
-
-
 }

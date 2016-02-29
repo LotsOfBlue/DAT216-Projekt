@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import se.chalmers.ait.dat215.project.*;
@@ -29,9 +31,7 @@ public class Utils
         List<Product> products = getProductsFromCategory(category);
         for(Product p: products)
         {
-            ProductView view =  new ProductView(p.getName(),p,
-                    null,
-                    p.getPrice());
+            ProductView view =  new ProductView(p);
             box.getChildren().add(view);
         }
         pane.getChildren().add(box);
@@ -44,9 +44,7 @@ public class Utils
         List<Product> products = dataHandler.findProducts(search);
         for(Product p: products)
         {
-            ProductView view =  new ProductView(p.getName(),p,
-                    null,
-                    p.getPrice());
+            ProductView view =  new ProductView(p);
             box.getChildren().add(view);
         }
         pane.getChildren().add(box);
