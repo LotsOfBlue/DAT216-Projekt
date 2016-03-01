@@ -37,7 +37,7 @@ public class ItemController implements Initializable
         Spinner realSpinner = new Spinner(1,100,1);
         realSpinner.setPrefWidth(spinner.getPrefWidth());
         realSpinner.setPrefHeight(spinner.getPrefHeight());
-        realSpinner.setLayoutX(spinner.getLayoutX());
+        realSpinner.setLayoutX(spinner.getLayoutX() + 100);
         realSpinner.setLayoutY(spinner.getLayoutY());
 
         main_pane.getChildren().remove(spinner);
