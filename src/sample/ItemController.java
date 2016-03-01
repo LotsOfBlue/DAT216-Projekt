@@ -34,7 +34,9 @@ public class ItemController implements Initializable
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources)
     {
+        //Temporarily store the location of the dummy spinner
         Spinner oldSpinner = spinner;
+        //Properly initialize the spinner
         spinner = new Spinner(1,100,1);
         spinner.setPrefWidth(oldSpinner.getPrefWidth());
         spinner.setPrefHeight(oldSpinner.getPrefHeight());

@@ -23,6 +23,7 @@ public class CartItemView extends HBox
             CartItemController controller = (CartItemController) fxmlLoader.getController();
             controller.nameLabel.setText(product.getName());
             controller.priceLabel.setText(product.getPrice()*amount + " kr");
+            controller.spinner.increment(amount - 1);
             getChildren().add(pane);
         }
         catch (IOException ex)

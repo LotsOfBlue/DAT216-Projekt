@@ -1,6 +1,9 @@
 package sample;
 
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Separator;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import se.chalmers.ait.dat215.project.*;
@@ -22,6 +25,10 @@ public class Utils
         Pane p = new CartItemView(product, amount);
         Main.cartController.itemPane.getChildren().add(p);
         Main.cartController.itemPane.getChildren().add(new Separator());
+    }
+
+    public static void removeItemFromCart(Parent item) {
+        Main.cartController.itemPane.getChildren().remove(item);
     }
 
     public static void setToValuesOfCategory(Pane pane, Category category, String str)
