@@ -41,17 +41,21 @@ public class Utils
 
     public static void setToValuesFromSearch(Pane pane, String search)
     {
-        pane.getChildren().clear();
-        VBox box = new VBox();
-        List<Product> products = dataHandler.findProducts(search);
-        for(Product p: products)
-        {
-            ProductView view = new ProductView(p);
-            box.getChildren().add(view);
-            box.getChildren().add(new Separator());
+        //Don't search if the input is just whitespace
+        if (!search.equals("")) {
+            pane.getChildren().clear();
+            VBox box = new VBox();
+            List<Product> products = dataHandler.findProducts(search);
+            for(Product p: products)
+			{
+				ProductView view = new ProductView(p);
+				box.getChildren().add(view);
+				box.getChildren().add(new Separator());
+			}
+            pane.getChildren().add(box);
+            Main.storeController.currentCategory.setText("Sökresultat");
         }
-        pane.getChildren().add(box);
-        Main.storeController.currentCategory.setText("Sökresultat");
+        Main.storeController.searchField.clear();
     }
 
     public enum Category

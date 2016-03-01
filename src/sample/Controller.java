@@ -3,6 +3,7 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -31,6 +32,8 @@ public class Controller implements Initializable
     @FXML
     public VBox ItemArea;
     @FXML
+    public TextField searchField;
+    public Button searchButton;
     public Text currentCategory;
     public AnchorPane cartPane;
     public static AnchorPane cartItemPane;
@@ -45,6 +48,7 @@ public class Controller implements Initializable
         breadButton. setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.breads, "Bröd"));
         spiceButton. setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.herbs, "Kryddor & örter"));
         carbsButton. setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.carbs, "Kolhydrater"));
+        searchButton.setOnAction(e -> Utils.setToValuesFromSearch(ItemArea, searchField.getText().trim()));
         cartItemPane = cartPane;
     }
 }
