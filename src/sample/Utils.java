@@ -16,10 +16,10 @@ public class Utils
     static IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     static ProductCategory[] categories = ProductCategory.values();
 
-    public static void addItemToCart(Product product)
+    public static void addItemToCart(Product product, int amount)
     {
         dataHandler.getShoppingCart().addProduct(product);
-        Pane p = new CartItemView(product);
+        Pane p = new CartItemView(product, amount);
         Main.cartController.itemPane.getChildren().add(p);
         Main.cartController.itemPane.getChildren().add(new Separator());
     }

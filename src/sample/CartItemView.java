@@ -14,7 +14,7 @@ import java.io.IOException;
      */
 public class CartItemView extends HBox
 {
-    public CartItemView(Product product)
+    public CartItemView(Product product, int amount)
     {
         try
         {
@@ -22,7 +22,7 @@ public class CartItemView extends HBox
             Pane pane = fxmlLoader.load(getClass().getResource("CartItem.fxml").openStream());
             CartItemController controller = (CartItemController) fxmlLoader.getController();
             controller.nameLabel.setText(product.getName());
-            controller.priceLabel.setText(product.getPrice() + " kr");
+            controller.priceLabel.setText(product.getPrice()*amount + " kr");
             getChildren().add(pane);
         }
         catch (IOException ex)

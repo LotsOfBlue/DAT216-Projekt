@@ -2,7 +2,6 @@ package sample;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import se.chalmers.ait.dat215.project.Product;
@@ -27,7 +26,7 @@ public class ProductView extends HBox
             controller.nameLabel.setText(product.getName());
             controller.singlePrice.setText(Double.toString(product.getPrice()) + " " + product.getUnit());
             controller.image.setImage(new Image("resources - projekt (fx)/images/" + product.getImageName()));
-            controller.addButton.setOnAction(e->Utils.addItemToCart(product));
+            controller.addButton.setOnAction(e->Utils.addItemToCart(product, (Integer)controller.spinner.getValue()));
             getChildren().add(pane);
         }
         catch (IOException ex)

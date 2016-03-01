@@ -34,13 +34,14 @@ public class ItemController implements Initializable
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources)
     {
-        Spinner realSpinner = new Spinner(1,100,1);
-        realSpinner.setPrefWidth(spinner.getPrefWidth());
-        realSpinner.setPrefHeight(spinner.getPrefHeight());
-        realSpinner.setLayoutX(spinner.getLayoutX() + 100);
-        realSpinner.setLayoutY(spinner.getLayoutY());
+        Spinner oldSpinner = spinner;
+        spinner = new Spinner(1,100,1);
+        spinner.setPrefWidth(oldSpinner.getPrefWidth());
+        spinner.setPrefHeight(oldSpinner.getPrefHeight());
+        spinner.setLayoutX(oldSpinner.getLayoutX() + 100);
+        spinner.setLayoutY(oldSpinner.getLayoutY());
 
-        main_pane.getChildren().remove(spinner);
-        main_pane.getChildren().add(realSpinner);
+        main_pane.getChildren().remove(oldSpinner);
+        main_pane.getChildren().add(spinner);
     }
 }
