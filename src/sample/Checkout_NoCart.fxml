@@ -3,8 +3,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -46,7 +48,7 @@
                      <font>
                         <Font size="14.0" />
                      </font></TextField>
-                  <TextField fx:id="locationLabel" layoutX="175.0" layoutY="295.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="330.0">
+                  <TextField fx:id="locationField" layoutX="175.0" layoutY="295.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="330.0">
                      <font>
                         <Font size="14.0" />
                      </font></TextField>
@@ -65,15 +67,18 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <RadioButton layoutX="499.0" layoutY="84.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="Mastercard" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="110.0">
+                  <RadioButton layoutX="499.0" layoutY="84.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" selected="true" text="Mastercard" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="110.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="card" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton layoutX="800.0" layoutY="127.0" mnemonicParsing="false" text="Visa" toggleGroup="$card" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="135.0">
                      <font>
                         <Font size="14.0" />
                      </font></RadioButton>
-                  <RadioButton layoutX="800.0" layoutY="127.0" mnemonicParsing="false" text="Visa" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="135.0">
-                     <font>
-                        <Font size="14.0" />
-                     </font></RadioButton>
-                  <RadioButton layoutX="803.0" layoutY="157.0" mnemonicParsing="false" text="Maestro" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="160.0">
+                  <RadioButton layoutX="803.0" layoutY="157.0" mnemonicParsing="false" text="Maestro" toggleGroup="$card" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="160.0">
                      <font>
                         <Font size="14.0" />
                      </font></RadioButton>
@@ -82,19 +87,25 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="802.0" layoutY="275.0" prefWidth="200.0" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="290.0" />
+                  <TextField fx:id="cardField" layoutX="802.0" layoutY="275.0" prefWidth="200.0" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="290.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
                   <Label layoutX="378.0" layoutY="214.0" text="Säkerhetskod" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="320.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="378.0" layoutY="233.0" prefWidth="70.0" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="340.0" />
-                  <Button layoutX="377.0" layoutY="353.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #00B474;" text="Betala" textFill="WHITE" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="950.0">
+                  <TextField fx:id="cvcField" layoutX="378.0" layoutY="233.0" prefWidth="70.0" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="340.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
+                  <Button fx:id="payButton" layoutX="377.0" layoutY="353.0" mnemonicParsing="false" onAction="#performPayment" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #00B474;" text="Betala" textFill="WHITE" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="950.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <RadioButton layoutX="810.0" layoutY="160.0" mnemonicParsing="false" text="Amex Black" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="185.0">
+                  <RadioButton layoutX="810.0" layoutY="160.0" mnemonicParsing="false" text="Amex Black" toggleGroup="$card" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="185.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -104,7 +115,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="postcodeLabel" layoutX="201.0" layoutY="333.0" prefWidth="200.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="280.0">
+                  <TextField fx:id="postcodeField" layoutX="201.0" layoutY="333.0" prefWidth="200.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="280.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -114,11 +125,52 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="phoneLabel" layoutX="201.0" layoutY="389.0" prefWidth="200.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="380.0">
+                  <TextField fx:id="phoneField" layoutX="201.0" layoutY="389.0" prefWidth="200.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="380.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
+                  <Separator layoutX="765.0" layoutY="-1.0" maxHeight="1.7976931348623157E308" orientation="VERTICAL" prefHeight="1080.0" AnchorPane.topAnchor="-1.0" />
+                  <Label fx:id="firstNameError" layoutX="403.0" layoutY="135.0" textFill="#e80000" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="135.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lastNameError" layoutX="400.0" layoutY="185.0" textFill="#e80000">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="addressError" layoutX="400.0" layoutY="235.0" textFill="#e80000">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="postcodeError" layoutX="400.0" layoutY="285.0" textFill="#e80000">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="locationError" layoutX="400.0" layoutY="335.0" textFill="#e80000">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="phoneError" layoutX="400.0" layoutY="385.0" textFill="#e80000">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="cardError" layoutX="1027.0" layoutY="295.0" textFill="#e80000">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="cvcError" layoutX="1027.0" layoutY="345.0" textFill="#e80000">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
         </items>
