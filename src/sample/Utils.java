@@ -22,13 +22,18 @@ public class Utils
     public static void addItemToCart(Product product, int amount)
     {
         dataHandler.getShoppingCart().addProduct(product);
-        Pane p = new CartItemView(product, amount);
+        CartItemView p = new CartItemView(product, amount);
         Main.cartController.itemPane.getChildren().add(p);
         Main.cartController.itemPane.getChildren().add(new Separator());
+        Main.cartController.amount_label.setText("" + (Integer.parseInt(Main.cartController.amount_label.getText()) + p.amount));
+        Main.cartController.sum_label.setText("" + (Double.parseDouble(Main.cartController.sum_label.getText()) + p.value));
     }
 
     public static void removeItemFromCart(Parent item) {
         Main.cartController.itemPane.getChildren().remove(item);
+        CartItemView cartItem = (CartItemView) item;
+        Main.cartController.amount_label.setText("" + (Integer.parseInt(Main.cartController.amount_label.getText()) - cartItem.amount));
+        Main.cartController.sum_label.setText("" + (Double.parseDouble(Main.cartController.sum_label.getText()) - cartItem.value));
     }
 
     public static void setToValuesOfCategory(Pane pane, Category category, String str)

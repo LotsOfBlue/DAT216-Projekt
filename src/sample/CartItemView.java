@@ -14,15 +14,20 @@ import java.io.IOException;
      */
 public class CartItemView extends HBox
 {
+    public double value;
+    public int amount;
+
     public CartItemView(Product product, int amount)
     {
+        this.amount = amount;
+        this.value = amount * product.getPrice();
         try
         {
             FXMLLoader fxmlLoader = new FXMLLoader();
             Pane pane = fxmlLoader.load(getClass().getResource("CartItem.fxml").openStream());
             CartItemController controller = (CartItemController) fxmlLoader.getController();
             controller.nameLabel.setText(product.getName());
-            controller.priceLabel.setText(product.getPrice()*amount + " kr");
+            controller.priceLabel.setText(value + " kr");
             controller.spinner.increment(amount - 1);
             getChildren().add(pane);
         }
