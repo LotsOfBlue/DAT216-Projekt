@@ -14,11 +14,13 @@ import java.io.IOException;
      */
 public class CartItemView extends HBox
 {
+    public final Product product;
     public double value;
     public int amount;
 
     public CartItemView(Product product, int amount)
     {
+        this.product = product;
         this.amount = amount;
         this.value = amount * product.getPrice();
         try

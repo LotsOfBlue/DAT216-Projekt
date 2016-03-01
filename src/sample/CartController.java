@@ -29,5 +29,6 @@ public class CartController implements Initializable
     public void initialize(URL fxmlFileLocation, ResourceBundle resources)
     {
         move_button.setOnAction(e->Main.toggleView());
+        save_Button.setOnAction(e -> Utils.newSavedList());
     }
 }

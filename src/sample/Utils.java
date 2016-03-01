@@ -19,6 +19,8 @@ public class Utils
     static IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     static ProductCategory[] categories = ProductCategory.values();
 
+    public static List<List<Product>> allSavedLists = new ArrayList<>();
+
     public static void addItemToCart(Product product, int amount)
     {
         dataHandler.getShoppingCart().addProduct(product);
@@ -127,5 +129,17 @@ public class Utils
                 break;
         }
         return productCategories;
+    }
+
+    public static void newSavedList() {
+        List<Product> productList = new ArrayList<>();
+        //Picks out the products from the cart
+        for(Node n : Main.cartController.itemPane.getChildren()) {
+            if(n.getClass().equals(CartItemView.class)) {
+                CartItemView cartProd = (CartItemView) n;
+                productList.add(cartProd.product);
+            }
+        }
+        allSavedLists.add(productList);
     }
 }
