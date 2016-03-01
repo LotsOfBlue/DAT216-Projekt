@@ -14,30 +14,42 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="819.0">
                <children>
-                  <Label layoutX="178.0" layoutY="60.0" text="Förnamn:" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="80.0">
+                  <Label layoutX="178.0" layoutY="60.0" text="Förnamn:" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="110.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="19.0" layoutY="168.0" text="Adress:" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="180.0">
+                  <Label layoutX="19.0" layoutY="168.0" text="Adress:" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="210.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="198.0" layoutY="262.0" text="Telefonnummer:" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="230.0">
+                  <Label layoutX="198.0" layoutY="262.0" text="Telefonnummer:" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="360.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="19.0" layoutY="114.0" text="Efternamn:" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="130.0">
+                  <Label layoutX="19.0" layoutY="114.0" text="Efternamn:" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="160.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="175.0" layoutY="80.0" prefHeight="25.0" prefWidth="160.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="100.0" />
-                  <TextField layoutX="175.0" layoutY="142.0" prefHeight="25.0" prefWidth="160.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="150.0" />
-                  <TextField layoutX="172.0" layoutY="220.0" prefHeight="25.0" prefWidth="160.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="200.0" />
-                  <TextField layoutX="175.0" layoutY="290.0" prefHeight="25.0" prefWidth="160.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="250.0" />
+                  <TextField fx:id="firstNameField" layoutX="175.0" layoutY="80.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="130.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
+                  <TextField fx:id="lastNameField" layoutX="175.0" layoutY="142.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="180.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
+                  <TextField fx:id="addressField" layoutX="172.0" layoutY="220.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="230.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
+                  <TextField fx:id="locationLabel" layoutX="175.0" layoutY="295.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="330.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
                   <Label layoutX="174.0" layoutY="6.0" prefHeight="53.0" prefWidth="302.0" text="Personuppgifter" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="10.0">
                      <font>
                         <Font name="System Bold" size="36.0" />
@@ -48,45 +60,65 @@
                         <Font name="System Bold" size="36.0" />
                      </font>
                   </Label>
-                  <Label layoutX="800.0" layoutY="80.0" text="Korttyp:" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="80.0">
+                  <Label layoutX="800.0" layoutY="80.0" text="Korttyp:" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="90.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <RadioButton layoutX="499.0" layoutY="84.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="Mastercard" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="100.0">
+                  <RadioButton layoutX="499.0" layoutY="84.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="Mastercard" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="110.0">
                      <font>
                         <Font size="14.0" />
                      </font></RadioButton>
-                  <RadioButton layoutX="800.0" layoutY="127.0" mnemonicParsing="false" text="Visa" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="125.0">
+                  <RadioButton layoutX="800.0" layoutY="127.0" mnemonicParsing="false" text="Visa" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="135.0">
                      <font>
                         <Font size="14.0" />
                      </font></RadioButton>
-                  <RadioButton layoutX="803.0" layoutY="157.0" mnemonicParsing="false" text="Maestro" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="150.0">
+                  <RadioButton layoutX="803.0" layoutY="157.0" mnemonicParsing="false" text="Maestro" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="160.0">
                      <font>
                         <Font size="14.0" />
                      </font></RadioButton>
-                  <Label layoutX="378.0" layoutY="155.0" text="Kortnummer" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="250.0">
+                  <Label layoutX="378.0" layoutY="155.0" text="Kortnummer" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="270.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="802.0" layoutY="275.0" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="270.0" />
-                  <Label layoutX="378.0" layoutY="214.0" text="Säkerhetskod" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="300.0">
+                  <TextField layoutX="802.0" layoutY="275.0" prefWidth="200.0" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="290.0" />
+                  <Label layoutX="378.0" layoutY="214.0" text="Säkerhetskod" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="320.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="378.0" layoutY="233.0" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="320.0" />
-                  <Button layoutX="377.0" layoutY="353.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="182.0" style="-fx-background-color: #00B474;" text="Betala" textFill="WHITE" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="950.0">
+                  <TextField layoutX="378.0" layoutY="233.0" prefWidth="70.0" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="340.0" />
+                  <Button layoutX="377.0" layoutY="353.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #00B474;" text="Betala" textFill="WHITE" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="950.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <RadioButton layoutX="810.0" layoutY="160.0" mnemonicParsing="false" text="Amex Black" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="175.0">
+                  <RadioButton layoutX="810.0" layoutY="160.0" mnemonicParsing="false" text="Amex Black" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="185.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </RadioButton>
+                  <Label layoutX="180.0" layoutY="262.0" text="Ort:" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="310.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="postcodeLabel" layoutX="201.0" layoutY="333.0" prefWidth="200.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="280.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="174.0" layoutY="369.0" text="Postnummer:" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="260.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="phoneLabel" layoutX="201.0" layoutY="389.0" prefWidth="200.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="380.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
                </children>
             </AnchorPane>
         </items>

@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
 import java.net.URL;
@@ -22,7 +23,13 @@ public class CheckOutController implements Initializable
     public Label amount_label;
     @FXML
     public Label sum_label;
-
+    public TextField firstNameField;
+    public TextField lastNameField;
+    public TextField addressField;
+    public TextField locationLabel;
+    public TextField postcodeLabel;
+    public TextField phoneLabel;
+    
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources)
     {
