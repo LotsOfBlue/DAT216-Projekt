@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
-import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -68,7 +67,7 @@ public class CheckOutController implements Initializable
 
         //Check if the fields contain valid info
         if(fieldsValid()) {
-
+            Main.purchaseComplete();
         }
     }
 

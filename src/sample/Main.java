@@ -19,14 +19,20 @@ public class Main extends Application {
     public static CartController cartController;
     private static final String toCheckout = "Gå till kassan";
     private static final String toStore = "Gå tillbaka";
+    private static Stage stage;
+    private static Scene mainScene;
+    private static Scene purchaseScene;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         //Parent root = FXMLLoader.load(getClass().getResource("storefront.fxml"));
         root = new HBox();
 
+        stage = primaryStage;
+        mainScene = new Scene(root);
+
         primaryStage.setTitle("iMat");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(mainScene);
         primaryStage.setResizable(true);
         primaryStage.setMaximized(true);
         primaryStage.show();
@@ -52,6 +58,12 @@ public class Main extends Application {
         Pane checkOut = fxmlLoader_3.load(getClass().getResource("Checkout_NoCart.fxml").openStream());
         CheckOutController  checkOutController = (CheckOutController) fxmlLoader_3.getController();
         checkOut.setLayoutX(0);
+
+        //Purchase complete
+        FXMLLoader loader = new FXMLLoader();
+        Pane purchaseCompletePane = loader.load(getClass().getResource("PurchaseComplete.fxml").openStream());
+        PurchaseCompleteController purchaseController = loader.getController();
+        purchaseScene = new Scene(purchaseCompletePane);
 
         //Arrange all the panes
         Node[] children = {storeFront,cart,checkOut};
@@ -109,5 +121,21 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public static void purchaseComplete() {
+        stage.hide();
+        stage.setScene(purchaseScene);
+        stage.setMaximized(true);
+        stage.show();
+    }
+
+    public static void resetStore() {
+        stage.hide();
+        stage.setScene(mainScene);
+        cartController.clearCart();
+        gotoStore();
+        stage.setMaximized(true);
+        stage.show();
     }
 }
