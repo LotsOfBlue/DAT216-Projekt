@@ -25,7 +25,8 @@ public class ProductView extends HBox
             ItemController controller = (ItemController) fxmlLoader.getController();
             controller.nameLabel.setText(product.getName());
             controller.singlePrice.setText(Double.toString(product.getPrice()) + " " + product.getUnit());
-            controller.image.setImage(new Image("resources - projekt (fx)/images/" + product.getImageName()));
+            controller.addButton.setOnAction(e->Main.cartController.addProduct(product, (Integer)controller.spinner.getValue()));
+            controller.image.setImage(Utils.dataHandler.getFXImage(product));
             controller.addButton.setOnAction(e->Main.cartController.addProduct(product, (Integer)controller.spinner.getValue()));
             getChildren().add(pane);
             //pane.setPrefWidth(size);
