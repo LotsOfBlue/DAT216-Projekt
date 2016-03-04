@@ -1,18 +1,15 @@
 package sample;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Separator;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import se.chalmers.ait.dat215.project.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Daniel.
@@ -22,7 +19,8 @@ public class Utils
     static IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     static ProductCategory[] categories = ProductCategory.values();
 
-    public static List<List<Product>> allSavedLists = new ArrayList<>();
+    public static List<Map<Product,Integer>> allSavedLists = new ArrayList<>();
+    public static List<Map<Product,Integer>> allHistoryLists = new ArrayList<>();
 
     public static void removeItemFromCart(Parent item) {
         Main.cartController.itemPane.getChildren().remove(item);
@@ -104,6 +102,8 @@ public class Utils
                 break;
             case fruits:
                 productCategories.add(ProductCategory.FRUIT);
+                productCategories.add(ProductCategory.CITRUS_FRUIT);
+                productCategories.add(ProductCategory.EXOTIC_FRUIT);
                 break;
             case meats:
                 productCategories.add(ProductCategory.MEAT);
@@ -125,14 +125,10 @@ public class Utils
     }
 
     public static void newSavedList() {
-        List<Product> productList = new ArrayList<>();
-        //Picks out the products from the cart
-        for(Node n : Main.cartController.itemPane.getChildren()) {
-            if(n.getClass().equals(CartItemView.class)) {
-                CartItemView cartProd = (CartItemView) n;
-                productList.add(cartProd.product);
-            }
-        }
-        allSavedLists.add(productList);
+        allSavedLists.add(new HashMap<Product, Integer>(CartController.cartProducts));
+    }
+
+    public static void newHistoryList() {
+        allHistoryLists.add(new HashMap<Product, Integer>(CartController.cartProducts));
     }
 }

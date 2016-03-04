@@ -2,15 +2,16 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import se.chalmers.ait.dat215.project.Product;
 
 import java.awt.geom.Area;
 import java.net.URL;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable
@@ -39,6 +40,22 @@ public class Controller implements Initializable
     public Text currentCategory;
     public ScrollPane AreaParent;
 
+    @FXML
+    public Button list_button;
+    @FXML
+    public VBox earlierPerchasesVBox;
+    @FXML
+    public Tab earlierPurachases;
+    @FXML
+    public VBox SavedListsVBox;
+    @FXML
+    public Tab savedLists;
+    @FXML
+    public TabPane listsView;
+    @FXML
+    public AnchorPane shoppingListView;
+    @FXML
+    public AnchorPane normalview;
 
     @FXML
     public AnchorPane topBar;
@@ -53,5 +70,25 @@ public class Controller implements Initializable
         spiceButton. setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.herbs, "Kryddor & örter"));
         carbsButton. setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.carbs, "Kolhydrater"));
         searchButton.setOnAction(e -> Utils.setToValuesFromSearch(ItemArea, searchField.getText().trim()));
+    }
+    public void search()
+    {
+        Utils.setToValuesFromSearch(ItemArea, searchField.getText().trim());
+    }
+
+    public void toggleListsView()
+    {
+        shoppingListView.setVisible(!shoppingListView.isVisible());
+        SavedListsVBox.getChildren().clear();
+
+        for(Map<Product,Integer> map : Utils.allSavedLists)
+        {
+            SavedListsVBox.getChildren().add(new sample.ListView("some list",map));
+        }
+
+        for(Map<Product,Integer> map : Utils.allHistoryLists)
+        {
+            earlierPerchasesVBox.getChildren().add(new sample.ListView("some history item",map));
+        }
     }
 }

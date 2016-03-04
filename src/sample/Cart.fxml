@@ -17,6 +17,11 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
+            <ScrollPane hbarPolicy="NEVER" prefHeight="887.0" prefWidth="207.0" style="-fx-background: #ffffffff;">
+               <content>
+                  <VBox fx:id="itemPane" prefHeight="164.0" prefWidth="264.0" style="-fx-background-color: #ffffff;" />
+               </content>
+            </ScrollPane>
             <Label prefHeight="20.0" prefWidth="91.0" text="Summa:">
                <font>
                   <Font size="16.0" />
@@ -43,11 +48,6 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <ScrollPane hbarPolicy="NEVER" prefHeight="887.0" prefWidth="207.0" style="-fx-background: #ffffffff;">
-               <content>
-                  <VBox fx:id="itemPane" prefHeight="164.0" prefWidth="264.0" style="-fx-background-color: #ffffff;" />
-               </content>
-            </ScrollPane>
             <Button fx:id="move_button" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" prefWidth="204.0" style="-fx-background-color: #00A8FF;" text="Gå tillbaka" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />

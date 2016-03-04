@@ -3,90 +3,137 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1562.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+
+<StackPane xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <AnchorPane layoutX="712.0" layoutY="100.0" prefHeight="80.0" prefWidth="1920.0" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="normalview" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #ffffff;">
          <children>
-            <Button layoutX="78.0" layoutY="25.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="166.0" text="Shoppinglistor" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="12.0">
+            <AnchorPane layoutX="712.0" layoutY="100.0" prefHeight="80.0" prefWidth="1920.0" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <TextField fx:id="searchField" layoutX="316.0" layoutY="20.0" onAction="#search" prefHeight="55.0" prefWidth="280.0" promptText="Sök efter en vara här..." AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="20.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="searchButton" layoutX="608.0" layoutY="21.0" mnemonicParsing="false" text="Sök" AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="20.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="list_button1" layoutX="23.0" layoutY="20.0" mnemonicParsing="false" onAction="#toggleListsView" prefHeight="51.0" prefWidth="166.0" text="Shoppinglistor" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <VBox layoutX="17.0" layoutY="152.0" prefHeight="928.0" prefWidth="320.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="152.0">
+               <children>
+                  <Button fx:id="fishButton" layoutX="10.0" layoutY="310.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #99ffaacc;" text="Fisk">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Separator prefWidth="200.0" />
+                  <Button fx:id="drinkButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #99ffaacc;" text="Dryck">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Separator layoutX="10.0" layoutY="313.0" prefWidth="200.0" />
+                  <Button fx:id="carbsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #99ffaacc;" text="Kolhydrater">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Separator layoutX="10.0" layoutY="388.0" prefWidth="200.0" />
+                  <Button fx:id="fruitButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #99ffaacc;" text="Frukt &amp; grönt">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Separator layoutX="10.0" layoutY="463.0" prefWidth="200.0" />
+                  <Button fx:id="breadButton" layoutX="10.0" layoutY="235.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #99ffaacc;" text="Bröd">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Separator layoutX="10.0" layoutY="616.0" prefWidth="200.0" />
+                  <Button fx:id="spiceButton" layoutX="10.0" layoutY="385.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #99ffaacc;" text="Kryddor &amp; örter">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Separator layoutX="10.0" layoutY="613.0" prefWidth="200.0" />
+                  <Button fx:id="sweetsButton" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #99ffaacc;" text="Sötsaker">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Separator layoutX="10.0" layoutY="85.0" prefWidth="200.0" />
+                  <Button fx:id="meatButton" layoutX="10.0" layoutY="160.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #99ffaacc;" text="Kött">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Separator layoutX="10.0" layoutY="238.0" prefWidth="200.0" />
+               </children>
+            </VBox>
+            <AnchorPane fx:id="topBar" layoutX="312.0" layoutY="72.0" prefHeight="74.0" prefWidth="1227.0" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="312.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="72.0">
+               <children>
+                  <Text fx:id="currentCategory" layoutX="5.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0">
+                     <font>
+                        <Font name="System Bold" size="48.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <ScrollPane fx:id="AreaParent" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="320.0" layoutY="151.0" style="-fx-background: #ffffffff;" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="151.0">
+               <content>
+                  <VBox fx:id="ItemArea" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" style="-fx-background-color: #99aaccff;" />
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="shoppingListView" onMousePressed="#toggleListsView">
+         <children>
+            <Button fx:id="list_button" layoutX="21.0" layoutY="17.0" mnemonicParsing="false" onAction="#toggleListsView" prefHeight="51.0" prefWidth="166.0" text="Shoppinglistor" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
                <font>
                   <Font size="21.0" />
                </font>
             </Button>
-            <TextField fx:id="searchField" layoutX="316.0" layoutY="20.0" prefHeight="55.0" prefWidth="280.0" promptText="Sök efter en vara här..." AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="20.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </TextField>
-            <Button fx:id="searchButton" layoutX="608.0" layoutY="21.0" mnemonicParsing="false" text="Sök" AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="20.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
+            <TabPane fx:id="listsView" layoutX="21.0" layoutY="68.0" prefHeight="551.0" prefWidth="302.0" style="-fx-background-color: #ffffffff; -fx-border-color: #000000ff;" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="earlierPurachases" text="Tidigare Inköp">
+                     <content>
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                           <content>
+                              <VBox fx:id="earlierPerchasesVBox" prefHeight="490.0" prefWidth="300.0" />
+                           </content>
+                        </ScrollPane>
+                     </content>
+                </Tab>
+                <Tab fx:id="savedLists" text="Sparade Inköpslistor">
+                     <content>
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                           <content>
+                              <VBox fx:id="SavedListsVBox" prefHeight="488.0" prefWidth="300.0" />
+                           </content>
+                        </ScrollPane>
+                     </content>
+                </Tab>
+              </tabs>
+            </TabPane>
          </children>
       </AnchorPane>
-      <VBox layoutX="17.0" layoutY="152.0" prefHeight="928.0" prefWidth="320.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="152.0">
-         <children>
-            <Button fx:id="fishButton" layoutX="10.0" layoutY="310.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #99ffaacc;" text="Fisk">
-               <font>
-                  <Font size="24.0" />
-               </font></Button>
-            <Separator prefWidth="200.0" />
-            <Button fx:id="drinkButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #99ffaacc;" text="Dryck">
-               <font>
-                  <Font size="24.0" />
-               </font></Button>
-            <Separator layoutX="10.0" layoutY="313.0" prefWidth="200.0" />
-            <Button fx:id="carbsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #99ffaacc;" text="Kolhydrater">
-               <font>
-                  <Font size="24.0" />
-               </font></Button>
-            <Separator layoutX="10.0" layoutY="388.0" prefWidth="200.0" />
-            <Button fx:id="fruitButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #99ffaacc;" text="Frukt &amp; grönt">
-               <font>
-                  <Font size="24.0" />
-               </font></Button>
-            <Separator layoutX="10.0" layoutY="463.0" prefWidth="200.0" />
-            <Button fx:id="breadButton" layoutX="10.0" layoutY="235.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #99ffaacc;" text="Bröd">
-               <font>
-                  <Font size="24.0" />
-               </font></Button>
-            <Separator layoutX="10.0" layoutY="616.0" prefWidth="200.0" />
-            <Button fx:id="spiceButton" layoutX="10.0" layoutY="385.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #99ffaacc;" text="Kryddor &amp; örter">
-               <font>
-                  <Font size="24.0" />
-               </font></Button>
-            <Separator layoutX="10.0" layoutY="613.0" prefWidth="200.0" />
-            <Button fx:id="sweetsButton" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #99ffaacc;" text="Sötsaker">
-               <font>
-                  <Font size="24.0" />
-               </font></Button>
-            <Separator layoutX="10.0" layoutY="85.0" prefWidth="200.0" />
-            <Button fx:id="meatButton" layoutX="10.0" layoutY="160.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #99ffaacc;" text="Kött">
-               <font>
-                  <Font size="24.0" />
-               </font></Button>
-            <Separator layoutX="10.0" layoutY="238.0" prefWidth="200.0" />
-         </children>
-      </VBox>
-      <AnchorPane fx:id="topBar" layoutX="312.0" layoutY="72.0" prefHeight="74.0" prefWidth="1227.0" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="312.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="72.0">
-         <children>
-            <Text fx:id="currentCategory" layoutX="5.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0">
-               <font>
-                  <Font name="System Bold" size="48.0" />
-               </font>
-            </Text>
-         </children>
-      </AnchorPane>
-      <ScrollPane fx:id="AreaParent" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="320.0" layoutY="152.0" style="-fx-background: #ffffffff;" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="152.0">
-         <content>
-            <VBox fx:id="ItemArea" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" style="-fx-background-color: #99aaccff;" />
-         </content>
-      </ScrollPane>
    </children>
-</AnchorPane>
+</StackPane>

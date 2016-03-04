@@ -50,7 +50,10 @@ public class Main extends Application {
         cart.setLayoutX(0);
         cartController.move_button.setText(toCheckout);
         double width = root.getWidth()-cart.getPrefWidth();
+
         storeFront.setPrefWidth(width);
+        storeController.normalview.setPrefWidth(width);
+        storeController.shoppingListView.setPrefWidth(width);
         cart.setMinWidth(cart.getPrefWidth());
 
         //Checkout
@@ -60,6 +63,7 @@ public class Main extends Application {
         checkOut.setLayoutX(0);
         checkOut.setPrefHeight(root.getHeight());
         checkOut.setMinWidth(width);
+
         checkOut.setPrefWidth(width);
         checkOutController.left_split.setPrefWidth(width/2);
 
@@ -112,6 +116,7 @@ public class Main extends Application {
         t.schedule(new TimerTask() {
             @Override
             public void run() {
+                double progress = 1-root.getLayoutX()/-storeFront.getPrefWidth();
                 if(root.getLayoutX()>=0){
                     this.cancel();
                     root.setLayoutX(0);
@@ -119,7 +124,9 @@ public class Main extends Application {
                 }
                 else
                 {
-                    root.setLayoutX(root.getLayoutX() + storeFront.getPrefWidth() / (float) 500);
+                    double speed = (1-Math.abs(progress-0.5)*2);
+                    System.out.println(speed);
+                    root.setLayoutX(root.getLayoutX() + (speed+0.1) * (storeFront.getPrefWidth()/ (float) 250));
                 }
             }
         }, 0, 1);
@@ -130,12 +137,12 @@ public class Main extends Application {
     }
 
     public static void purchaseComplete() {
-        //stage.setScene(purchaseScene);
+        stage.setScene(purchaseScene);
     }
 
     public static void resetStore() {
-        //@fixme...
         cartController.clearCart();
+        stage.setScene(mainScene);
         gotoStore();
     }
 }
