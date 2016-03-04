@@ -45,6 +45,7 @@ public class ProductView extends HBox
         return HEIGHT;
     }
 
+
     final static int WIDTH = 110;
     public static int getImageWidth(){
         return WIDTH;
