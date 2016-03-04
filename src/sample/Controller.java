@@ -3,11 +3,13 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import java.awt.geom.Area;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -35,9 +37,11 @@ public class Controller implements Initializable
     public TextField searchField;
     public Button searchButton;
     public Text currentCategory;
-    public AnchorPane cartPane;
-    public static AnchorPane cartItemPane;
+    public ScrollPane AreaParent;
 
+
+    @FXML
+    public AnchorPane topBar;
     @Override // This method is called by the FXMLLoader when initialization is complete
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         meatButton.  setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.meats, "Kött"));
@@ -49,6 +53,5 @@ public class Controller implements Initializable
         spiceButton. setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.herbs, "Kryddor & örter"));
         carbsButton. setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.carbs, "Kolhydrater"));
         searchButton.setOnAction(e -> Utils.setToValuesFromSearch(ItemArea, searchField.getText().trim()));
-        cartItemPane = cartPane;
     }
 }

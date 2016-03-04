@@ -15,7 +15,7 @@ public class ProductView extends HBox
 {
     private Product product;
 
-    public ProductView (Product product)
+    public ProductView (Product product,double size)
     {
         this.product = product;
         try
@@ -26,8 +26,9 @@ public class ProductView extends HBox
             controller.nameLabel.setText(product.getName());
             controller.singlePrice.setText(Double.toString(product.getPrice()) + " " + product.getUnit());
             controller.image.setImage(new Image("resources - projekt (fx)/images/" + product.getImageName()));
-            controller.addButton.setOnAction(e->Utils.addItemToCart(product, (Integer)controller.spinner.getValue()));
+            controller.addButton.setOnAction(e->Main.cartController.addProduct(product, (Integer)controller.spinner.getValue()));
             getChildren().add(pane);
+            //pane.setPrefWidth(size);
         }
         catch (IOException ex)
         {

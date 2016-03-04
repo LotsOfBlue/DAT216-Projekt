@@ -1,5 +1,8 @@
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Separator;
@@ -21,16 +24,6 @@ public class Utils
 
     public static List<List<Product>> allSavedLists = new ArrayList<>();
 
-    public static void addItemToCart(Product product, int amount)
-    {
-        dataHandler.getShoppingCart().addProduct(product);
-        CartItemView p = new CartItemView(product, amount);
-        Main.cartController.itemPane.getChildren().add(p);
-        Main.cartController.itemPane.getChildren().add(new Separator());
-        Main.cartController.amount_label.setText("" + (Integer.parseInt(Main.cartController.amount_label.getText()) + p.amount));
-        Main.cartController.sum_label.setText("" + (Double.parseDouble(Main.cartController.sum_label.getText()) + p.value));
-    }
-
     public static void removeItemFromCart(Parent item) {
         Main.cartController.itemPane.getChildren().remove(item);
         CartItemView cartItem = (CartItemView) item;
@@ -45,7 +38,7 @@ public class Utils
         List<Product> products = getProductsFromCategory(category);
         for(Product p: products)
         {
-            ProductView view = new ProductView(p);
+            ProductView view = new ProductView(p,500);
             box.getChildren().add(view);
             box.getChildren().add(new Separator());
         }
@@ -62,7 +55,7 @@ public class Utils
             List<Product> products = dataHandler.findProducts(search);
             for(Product p: products)
 			{
-				ProductView view = new ProductView(p);
+				ProductView view = new ProductView(p,pane.getPrefWidth());
 				box.getChildren().add(view);
 				box.getChildren().add(new Separator());
 			}

@@ -5,7 +5,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 import java.net.URL;
@@ -14,16 +16,6 @@ import java.util.ResourceBundle;
 public class CheckOutController implements Initializable
 {
 
-    @FXML
-    public Pane itemPane;
-    @FXML
-    public Button move_button;
-    @FXML
-    public Button save_Button;
-    @FXML
-    public Label amount_label;
-    @FXML
-    public Label sum_label;
 
     @FXML
     public TextField firstNameField;
@@ -46,12 +38,19 @@ public class CheckOutController implements Initializable
     public Label cvcError;
 
     @FXML
-    public Button payButton;
-
+    public SplitPane split_pane;
+    public AnchorPane left_split;
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources)
     {
-
+        firstNameError.setText("");
+        lastNameError.setText("");
+        addressError.setText("");
+        postcodeError.setText("");
+        locationError.setText("");
+        phoneError.setText("");
+        cardError.setText("");
+        cvcError.setText("");
     }
 
     public void performPayment(ActionEvent event) {

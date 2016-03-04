@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -34,16 +35,6 @@ public class ItemController implements Initializable
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources)
     {
-        //Temporarily store the location of the dummy spinner
-        Spinner oldSpinner = spinner;
-        //Properly initialize the spinner
-        spinner = new Spinner(1,100,1);
-        spinner.setPrefWidth(oldSpinner.getPrefWidth());
-        spinner.setPrefHeight(oldSpinner.getPrefHeight());
-        spinner.setLayoutX(oldSpinner.getLayoutX() + 100);
-        spinner.setLayoutY(oldSpinner.getLayoutY());
-
-        main_pane.getChildren().remove(oldSpinner);
-        main_pane.getChildren().add(spinner);
+        spinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100,1));
     }
 }

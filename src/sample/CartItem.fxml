@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="main_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="270.0" style="-fx-background-color: #eeeeee;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CartItemController">
+<AnchorPane fx:id="main_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="270.0" style="-fx-background-color: #99ffaacc;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CartItemController">
    <children>
       <Label fx:id="nameLabel" layoutX="84.0" layoutY="14.0" prefHeight="25.0" prefWidth="96.0" text="Name" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
          <font>
@@ -17,7 +17,7 @@
             <Font size="18.0" />
          </font></Label>
       <Spinner fx:id="spinner" editable="true" layoutX="14.0" layoutY="10.0" prefHeight="60.0" prefWidth="55.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
-      <Button fx:id="deleteButton" layoutX="213.0" layoutY="2.0" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: #eeeeee;" text="X" textFill="#fc0000" AnchorPane.bottomAnchor="39.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+      <Button fx:id="deleteButton" layoutX="213.0" layoutY="2.0" mnemonicParsing="false" prefHeight="20.0" style="-fx-background-color: #00000000;" text="X" textFill="#fc0000" AnchorPane.bottomAnchor="39.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

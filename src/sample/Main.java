@@ -41,7 +41,6 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader();
         storeFront = fxmlLoader.load(getClass().getResource("storefront_NoCart.fxml").openStream());
         storeController = (Controller) fxmlLoader.getController();
-        storeFront.setPrefHeight(root.getPrefHeight());
 
         //Shopping cart
         FXMLLoader fxmlLoader_2 = new FXMLLoader();
@@ -50,7 +49,8 @@ public class Main extends Application {
         cart.setPrefHeight(root.getHeight());
         cart.setLayoutX(0);
         cartController.move_button.setText(toCheckout);
-        storeFront.setPrefWidth(root.getWidth()-cart.getPrefWidth());
+        double width = root.getWidth()-cart.getPrefWidth();
+        storeFront.setPrefWidth(width);
         cart.setMinWidth(cart.getPrefWidth());
 
         //Checkout
@@ -58,17 +58,19 @@ public class Main extends Application {
         Pane checkOut = fxmlLoader_3.load(getClass().getResource("Checkout_NoCart.fxml").openStream());
         CheckOutController  checkOutController = (CheckOutController) fxmlLoader_3.getController();
         checkOut.setLayoutX(0);
+        checkOut.setPrefHeight(root.getHeight());
+        checkOut.setMinWidth(width);
+        checkOut.setPrefWidth(width);
+        checkOutController.left_split.setPrefWidth(width/2);
 
         //Purchase complete
         FXMLLoader loader = new FXMLLoader();
         Pane purchaseCompletePane = loader.load(getClass().getResource("PurchaseComplete.fxml").openStream());
         PurchaseCompleteController purchaseController = loader.getController();
-        purchaseScene = new Scene(purchaseCompletePane);
 
         //Arrange all the panes
-        Node[] children = {storeFront,cart,checkOut};
+        Node[] children = {storeFront,cart,checkOut,purchaseCompletePane};
         root.getChildren().addAll(children);
-        checkOut.setPrefHeight(root.getHeight());
     }
 
     private static boolean inShop = true;
@@ -94,6 +96,7 @@ public class Main extends Application {
             @Override
             public void run() {
                 if(-root.getLayoutX()>storeFront.getPrefWidth()){
+                    root.setLayoutX(-storeFront.getPrefWidth());
                     this.cancel();
                     inShop = false;
                 }
@@ -111,10 +114,13 @@ public class Main extends Application {
             public void run() {
                 if(root.getLayoutX()>=0){
                     this.cancel();
+                    root.setLayoutX(0);
                     inShop = true;
                 }
                 else
+                {
                     root.setLayoutX(root.getLayoutX() + storeFront.getPrefWidth() / (float) 500);
+                }
             }
         }, 0, 1);
     }
@@ -124,18 +130,12 @@ public class Main extends Application {
     }
 
     public static void purchaseComplete() {
-        stage.hide();
-        stage.setScene(purchaseScene);
-        stage.setMaximized(true);
-        stage.show();
+        //stage.setScene(purchaseScene);
     }
 
     public static void resetStore() {
-        stage.hide();
-        stage.setScene(mainScene);
+        //@fixme...
         cartController.clearCart();
         gotoStore();
-        stage.setMaximized(true);
-        stage.show();
     }
 }

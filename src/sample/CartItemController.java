@@ -2,11 +2,10 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Spinner;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 
+import javax.swing.event.ChangeListener;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -26,18 +25,6 @@ public class CartItemController implements Initializable
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources)
     {
-        deleteButton.setOnAction(e -> Utils.removeItemFromCart(deleteButton.getParent().getParent()));
-
-        //Temporarily store the location of the dummy spinner
-        Spinner oldSpinner = spinner;
-        //Properly initialize the spinner
-        spinner = new Spinner(1,100,1);
-        spinner.setLayoutX(oldSpinner.getLayoutX());
-        spinner.setLayoutY(oldSpinner.getLayoutY());
-        spinner.setPrefWidth(oldSpinner.getPrefWidth());
-        spinner.setPrefHeight(oldSpinner.getPrefHeight());
-
-        main_pane.getChildren().remove(oldSpinner);
-        main_pane.getChildren().add(spinner);
+        spinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100,1));
     }
 }
