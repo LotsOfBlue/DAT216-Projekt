@@ -72,7 +72,7 @@ public class CheckOutController implements Initializable
         cvcError.setText("");
         //Check if the fields contain valid info
         if(fieldsValid()) {
-            Utils.newHistoryList();
+            Utils.newHistoryList("my history list :)");
             saveInfo();
             Main.purchaseComplete();
         }

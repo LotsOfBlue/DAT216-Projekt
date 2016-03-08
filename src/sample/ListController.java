@@ -20,7 +20,6 @@ public class ListController implements Initializable
     @FXML
     public Pane main_pane;
 
-
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources)
     {

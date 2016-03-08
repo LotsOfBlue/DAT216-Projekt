@@ -24,6 +24,7 @@ public class ListView extends Pane
             ListController controller = (ListController) fxmlLoader.getController();
             controller.ListName.setText(name);
             controller.addButton.setOnAction(e->addListToCart());
+            setMinHeight(pane.getMinHeight());
             getChildren().add(pane);
         }
         catch (IOException ex)

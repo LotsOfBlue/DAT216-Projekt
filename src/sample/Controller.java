@@ -88,17 +88,19 @@ public class Controller implements Initializable
 
     public void updateLists()
     {
-        earlierPerchasesVBox.getChildren().clear();
         SavedListsVBox.getChildren().clear();
-        for(Map<Product,Integer> map : Utils.allSavedLists)
+        for(savedList list : Utils.allSavedLists)
         {
-            SavedListsVBox.getChildren().add(new sample.ListView("some list",map));
+            Map<Product,Integer> map = list.map;
+            SavedListsVBox.getChildren().add(new sample.ListView(list.name,map));
             SavedListsVBox.getChildren().add(new Separator());
         }
 
-        for(Map<Product,Integer> map : Utils.allHistoryLists)
+        earlierPerchasesVBox.getChildren().clear();
+        for( savedList list: Utils.allHistoryLists)
         {
-            earlierPerchasesVBox.getChildren().add(new sample.ListView("some history item",map));
+            Map<Product,Integer> map = list.map;
+            earlierPerchasesVBox.getChildren().add(new sample.ListView(list.name,map));
             earlierPerchasesVBox.getChildren().add(new Separator());
         }
     }

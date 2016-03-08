@@ -26,19 +26,36 @@ public class Main extends Application {
     private static Scene purchaseScene;
     private static  Pane[] children_;
 
+    static Pane realRoot;
+    static Node popup;
+    static Pane panel;
     @Override
     public void start(Stage primaryStage) throws Exception{
         //Parent root = FXMLLoader.load(getClass().getResource("storefront.fxml"));
+
+
         root = new HBox();
 
+        realRoot = new Pane();
+        realRoot.getChildren().add(root);
+        root.setOnMousePressed(e->{
+            removePopUp();
+        });
+
+        root.setMaxWidth(realRoot.getMaxWidth());
+        root.setMaxHeight(realRoot.getMaxHeight());
+
         stage = primaryStage;
-        mainScene = new Scene(root);
+        mainScene = new Scene(realRoot);
 
         primaryStage.setTitle("iMat");
         primaryStage.setScene(mainScene);
         primaryStage.setResizable(true);
         primaryStage.setMaximized(true);
         primaryStage.show();
+
+        double w = mainScene.getWidth();
+        double h = mainScene.getHeight();
 
         primaryStage.setOnCloseRequest(e->
         {
@@ -55,22 +72,23 @@ public class Main extends Application {
         Pane cart = fxmlLoader_2.load(getClass().getResource("Cart.fxml").openStream());
         cart.setOnMousePressed(e->storeController.setVisibleListView(false));
         cartController = (CartController) fxmlLoader_2.getController();
-        cart.setPrefHeight(root.getHeight());
+        cart.setPrefHeight(h);
+        cart.setMaxHeight(h);
         cart.setLayoutX(0);
+
         cartController.move_button.setText(toCheckout);
-        double width = root.getWidth()-cart.getPrefWidth();
+        double width = w-cart.getPrefWidth();
 
         storeFront.setPrefWidth(width);
         storeController.normalview.setPrefWidth(width);
         storeController.shoppingListView.setPrefWidth(width);
         cart.setMinWidth(cart.getPrefWidth());
-
         //Checkout
         FXMLLoader fxmlLoader_3 = new FXMLLoader();
         Pane checkOut = fxmlLoader_3.load(getClass().getResource("Checkout_NoCart.fxml").openStream());
         CheckOutController  checkOutController = (CheckOutController) fxmlLoader_3.getController();
         checkOut.setLayoutX(0);
-        checkOut.setPrefHeight(root.getHeight());
+        checkOut.setPrefHeight(h);
         checkOut.setMinWidth(width);
 
         checkOut.setPrefWidth(width);
@@ -87,6 +105,33 @@ public class Main extends Application {
         root.getChildren().addAll(children);
         Utils.loadListsFromFile();
     }
+
+
+    public static void addPopUp(Pane n)
+    {
+        popup = n;
+        panel = new Pane();
+        panel.setPrefHeight(2000);
+        panel.setPrefWidth(2000);
+
+        n.setLayoutX(realRoot.getWidth()/2-n.getPrefWidth()/2);
+        n.setLayoutY(realRoot.getHeight()/2-n.getPrefHeight()/2);
+
+        realRoot.getChildren().add(panel);
+        realRoot.getChildren().add(popup);
+        panel.setOnMousePressed(e->removePopUp());
+
+    }
+    public static void removePopUp()
+    {
+        System.out.println(popup);
+        if(popup!= null)
+        {
+            realRoot.getChildren().remove(popup);
+            realRoot.getChildren().remove(panel);
+        }
+    }
+
 
     public static void toggleView()
     {

@@ -7,6 +7,7 @@ import javafx.scene.layout.VBox;
 import se.chalmers.ait.dat215.project.*;
 
 import java.io.*;
+import java.net.PortUnreachableException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,8 +21,8 @@ public class Utils
     static IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     static ProductCategory[] categories = ProductCategory.values();
 
-    public static List<Map<Product,Integer>> allSavedLists = new ArrayList<>();
-    public static List<Map<Product,Integer>> allHistoryLists = new ArrayList<>();
+    public static List<savedList> allSavedLists = new ArrayList<>();
+    public static List<savedList> allHistoryLists = new ArrayList<>();
 
     public static void removeItemFromCart(Parent item) {
         Main.cartController.itemPane.getChildren().remove(item);
@@ -129,14 +130,14 @@ public class Utils
         return productCategories;
     }
 
-    public static void newSavedList() {
-        allSavedLists.add(new HashMap<Product, Integer>(CartController.cartProducts));
+    public static void newSavedList(String name) {
+        allSavedLists.add(new savedList(new HashMap<Product, Integer>(CartController.cartProducts),name));
         Main.storeController.updateLists();
         saveListsToFile();
     }
 
-    public static void newHistoryList() {
-        allHistoryLists.add(new HashMap<Product, Integer>(CartController.cartProducts));
+    public static void newHistoryList(String name) {
+        allHistoryLists.add(new savedList(new HashMap<Product, Integer>(CartController.cartProducts),name));
         Main.storeController.updateLists();
         saveListsToFile();
     }
@@ -163,12 +164,22 @@ public class Utils
             File f = new File("lists.out");
             FileInputStream fs = new FileInputStream(f);
             ObjectInputStream stream = new ObjectInputStream(fs);
-            allSavedLists = (ArrayList<Map<Product,Integer>>) stream.readObject();
-            allHistoryLists = (ArrayList<Map<Product,Integer>>) stream.readObject();
+            allSavedLists = (ArrayList<savedList>) stream.readObject();
+            allHistoryLists = (ArrayList<savedList>) stream.readObject();
         }
         catch (Exception ex)
         {
             // do nothing.
         }
     }
+}
+class savedList implements Serializable
+{
+    public savedList(HashMap<Product,Integer>map, String name)
+    {
+        this.name = name;
+        this.map = map;
+    }
+    HashMap<Product,Integer> map;
+    String name;
 }

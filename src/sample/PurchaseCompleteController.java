@@ -17,7 +17,7 @@ public class PurchaseCompleteController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		saveButton.setOnAction(e -> Utils.newSavedList());
+		saveButton.setOnAction(e -> Main.addPopUp(new nameListView()));
 		storeButton.setOnAction(e -> Main.resetStore());
 	}
 }
