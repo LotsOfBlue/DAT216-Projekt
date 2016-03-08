@@ -18,9 +18,9 @@
          <children>
             <AnchorPane layoutX="712.0" layoutY="100.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" prefWidth="1372.0" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label fx:id="currentCategory" alignment="BOTTOM_LEFT" prefHeight="74.0" prefWidth="624.0" text="Label" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="337.0" AnchorPane.topAnchor="20.0">
+                  <Label fx:id="currentCategory" alignment="BOTTOM_LEFT" prefHeight="74.0" prefWidth="624.0" text="Välkommen!" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="337.0" AnchorPane.topAnchor="20.0">
                      <font>
-                        <Font name="System Bold" size="36.0" />
+                        <Font name="Trebuchet MS" size="36.0" />
                      </font>
                   </Label>
                   <Button fx:id="list_button1" layoutX="23.0" layoutY="20.0" mnemonicParsing="false" onAction="#toggleListsView" prefHeight="51.0" prefWidth="166.0" text="Shoppinglistor" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0">
@@ -101,18 +101,18 @@
       </AnchorPane>
       <AnchorPane fx:id="shoppingListView" onMousePressed="#toggleListsView">
          <children>
-            <Button fx:id="list_button" layoutX="21.0" layoutY="17.0" mnemonicParsing="false" onAction="#toggleListsView" prefHeight="51.0" prefWidth="166.0" text="Shoppinglistor" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <Button fx:id="list_button" layoutX="21.0" layoutY="30.0" mnemonicParsing="false" onAction="#toggleListsView" prefHeight="51.0" prefWidth="166.0" text="Shoppinglistor" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0">
                <font>
                   <Font size="21.0" />
                </font>
             </Button>
-            <TabPane fx:id="listsView" layoutX="21.0" layoutY="68.0" prefHeight="551.0" prefWidth="300.0" style="-fx-background-color: #ffffffff; -fx-border-color: #000000ff;" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="listsView" layoutX="21.0" layoutY="81.0" prefHeight="538.0" prefWidth="300.0" style="-fx-background-color: #ffffffff; -fx-border-color: #000000ff;" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab fx:id="earlierPurachases" text="Tidigare Inköp">
                      <content>
-                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                        <ScrollPane prefHeight="534.0" prefWidth="298.0">
                            <content>
-                              <VBox fx:id="earlierPerchasesVBox" prefHeight="490.0" prefWidth="300.0" />
+                              <VBox fx:id="earlierPerchasesVBox" prefHeight="504.0" prefWidth="298.0" />
                            </content>
                         </ScrollPane>
                      </content>

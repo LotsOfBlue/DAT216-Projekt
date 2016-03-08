@@ -1,9 +1,11 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Control;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -22,6 +24,7 @@ public class Main extends Application {
     private static Stage stage;
     private static Scene mainScene;
     private static Scene purchaseScene;
+    private static  Pane[] children_;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -36,6 +39,11 @@ public class Main extends Application {
         primaryStage.setResizable(true);
         primaryStage.setMaximized(true);
         primaryStage.show();
+
+        primaryStage.setOnCloseRequest(e->
+        {
+            Platform.exit();
+        });
 
         //Storefront
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -66,7 +74,7 @@ public class Main extends Application {
         checkOut.setMinWidth(width);
 
         checkOut.setPrefWidth(width);
-        checkOutController.left_split.setPrefWidth(width/2);
+        //checkOutController.left_split.setPrefWidth(width/2);
 
         //Purchase complete
         FXMLLoader loader = new FXMLLoader();
@@ -74,17 +82,16 @@ public class Main extends Application {
         PurchaseCompleteController purchaseController = loader.getController();
 
         //Arrange all the panes
-        Node[] children = {storeFront,cart,checkOut,purchaseCompletePane};
+        Pane[] children = {storeFront,cart,checkOut,purchaseCompletePane};
+        children_ = children;
         root.getChildren().addAll(children);
         Utils.loadListsFromFile();
     }
 
-    private static boolean inShop = true;
-
     public static void toggleView()
     {
         storeController.setVisibleListView(false);
-        if(inShop)
+        if(activeScene != 1)
         {
             gotoCheckout();
             cartController.move_button.setText(toStore);
@@ -113,50 +120,17 @@ public class Main extends Application {
     static boolean isMoving = false;
     public static void gotoCheckout()
     {
-        if(isMoving)return;
-        Timer t = new Timer();
-        isMoving = true;
-        t.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                double progress = -root.getLayoutX()/storeFront.getPrefWidth();
-                if(-root.getLayoutX()>storeFront.getPrefWidth()){
-                    this.cancel();
-                    root.setLayoutX(-storeFront.getPrefWidth());
-                    inShop = false;
-                    isMoving = false;
-                }
-                else
-                {
-                    double speed = calculateSpeed(progress);
-                    root.setLayoutX(root.getLayoutX() + (speed+0.05) * (-storeFront.getPrefWidth()/ (float) 300));
-                }
-            }
-        }, 0, 1);
+        gotoScene(1);
     }
 
     public static void gotoStore()
     {
-        if(isMoving)return;
-        Timer t = new Timer();
-        isMoving = true;
-        t.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                double progress = 1-root.getLayoutX()/-storeFront.getPrefWidth();
-                if(root.getLayoutX()>=0){
-                    this.cancel();
-                    root.setLayoutX(0);
-                    inShop = true;
-                    isMoving = false;
-                }
-                else
-                {
-                    double speed = calculateSpeed(progress);
-                    root.setLayoutX(root.getLayoutX() + (speed+0.1) * (storeFront.getPrefWidth()/ (float) 300));
-                }
-            }
-        }, 0, 1);
+        gotoScene(0);
+    }
+
+    public static void gotoPurchaseComplete()
+    {
+        gotoScene(3);
     }
 
     public static void main(String[] args) {
@@ -164,7 +138,44 @@ public class Main extends Application {
     }
 
     public static void purchaseComplete() {
-        stage.setScene(purchaseScene);
+        gotoPurchaseComplete();
+    }
+
+    public static double targetLayoutX = 0;
+    public static double initialLayoutX = 0;
+    public static int activeScene = 0;
+
+    private static void gotoScene(int sceneIndex)
+    {
+        if(isMoving)return;
+        targetLayoutX = 0;
+        for(int i = 0;i<sceneIndex;i++)
+        {
+            targetLayoutX-=children_[i].getPrefWidth();
+        }
+        initialLayoutX = root.getLayoutX();
+        isMoving = true;
+        activeScene = sceneIndex;
+        Timer t = new Timer();
+        t.schedule(new TimerTask() {
+            @Override
+            public void run() {
+
+                double remaining = targetLayoutX-root.getLayoutX();
+                double initial = (targetLayoutX-initialLayoutX);
+                double progress = 1-(remaining/initial);
+                if(Math.signum(remaining)!=Math.signum(initial)){
+                    this.cancel();
+                    root.setLayoutX(targetLayoutX);
+                    isMoving = false;
+                }
+                else
+                {
+                    double speed = calculateSpeed(progress);
+                    root.setLayoutX(root.getLayoutX() + (speed+0.1) * (initial / (float) 300));
+                }
+            }
+        }, 30, 1);
     }
 
     public static void resetStore() {
