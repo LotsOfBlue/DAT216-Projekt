@@ -37,7 +37,7 @@ public class Controller implements Initializable
     @FXML
     public TextField searchField;
     public Button searchButton;
-    public Text currentCategory;
+    public Label currentCategory;
     public ScrollPane AreaParent;
 
     @FXML
@@ -57,8 +57,6 @@ public class Controller implements Initializable
     @FXML
     public AnchorPane normalview;
 
-    @FXML
-    public AnchorPane topBar;
     @Override // This method is called by the FXMLLoader when initialization is complete
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         meatButton.  setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.meats, "Kött"));
@@ -70,6 +68,7 @@ public class Controller implements Initializable
         spiceButton. setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.herbs, "Kryddor & örter"));
         carbsButton. setOnAction(e -> Utils.setToValuesOfCategory(ItemArea, Utils.Category.carbs, "Kolhydrater"));
         searchButton.setOnAction(e -> Utils.setToValuesFromSearch(ItemArea, searchField.getText().trim()));
+        toggleListsView();
     }
     public void search()
     {
@@ -80,15 +79,27 @@ public class Controller implements Initializable
     {
         shoppingListView.setVisible(!shoppingListView.isVisible());
         SavedListsVBox.getChildren().clear();
+        updateLists();
+    }
+    public void setVisibleListView(boolean visible)
+    {
+        shoppingListView.setVisible(visible);
+    }
 
+    public void updateLists()
+    {
+        earlierPerchasesVBox.getChildren().clear();
+        SavedListsVBox.getChildren().clear();
         for(Map<Product,Integer> map : Utils.allSavedLists)
         {
             SavedListsVBox.getChildren().add(new sample.ListView("some list",map));
+            SavedListsVBox.getChildren().add(new Separator());
         }
 
         for(Map<Product,Integer> map : Utils.allHistoryLists)
         {
             earlierPerchasesVBox.getChildren().add(new sample.ListView("some history item",map));
+            earlierPerchasesVBox.getChildren().add(new Separator());
         }
     }
 }

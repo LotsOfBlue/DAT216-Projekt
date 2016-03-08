@@ -29,7 +29,7 @@ public class ProductView extends HBox
             controller.image.setImage(Utils.dataHandler.getFXImage(product));
             controller.addButton.setOnAction(e->Main.cartController.addProduct(product, (Integer)controller.spinner.getValue()));
             getChildren().add(pane);
-            //pane.setPrefWidth(size);
+            pane.setPrefWidth(size);
         }
         catch (IOException ex)
         {

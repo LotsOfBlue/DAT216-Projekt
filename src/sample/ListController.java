@@ -26,9 +26,5 @@ public class ListController implements Initializable
     {
 
     }
-    void AddListToCart()
-    {
-
-    }
 
 }

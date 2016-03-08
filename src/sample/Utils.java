@@ -6,6 +6,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import se.chalmers.ait.dat215.project.*;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,21 +32,25 @@ public class Utils
 
     public static void setToValuesOfCategory(Pane pane, Category category, String str)
     {
+        Main.storeController.AreaParent.setVvalue(0);
         pane.getChildren().clear();
         VBox box = new VBox();
         List<Product> products = getProductsFromCategory(category);
         for(Product p: products)
         {
-            ProductView view = new ProductView(p,500);
+            ProductView view = new ProductView(p,780);
             box.getChildren().add(view);
             box.getChildren().add(new Separator());
         }
         pane.getChildren().add(box);
         Main.storeController.currentCategory.setText(str);
+        pane.setPrefHeight(box.getPrefHeight());
+
     }
 
     public static void setToValuesFromSearch(Pane pane, String search)
     {
+        Main.storeController.AreaParent.setVvalue(0);
         //Don't search if the input is just whitespace
         if (!search.equals("")) {
             pane.getChildren().clear();
@@ -53,7 +58,7 @@ public class Utils
             List<Product> products = dataHandler.findProducts(search);
             for(Product p: products)
 			{
-				ProductView view = new ProductView(p,pane.getPrefWidth());
+				ProductView view = new ProductView(p,780);
 				box.getChildren().add(view);
 				box.getChildren().add(new Separator());
 			}
@@ -126,9 +131,44 @@ public class Utils
 
     public static void newSavedList() {
         allSavedLists.add(new HashMap<Product, Integer>(CartController.cartProducts));
+        Main.storeController.updateLists();
+        saveListsToFile();
     }
 
     public static void newHistoryList() {
         allHistoryLists.add(new HashMap<Product, Integer>(CartController.cartProducts));
+        Main.storeController.updateLists();
+        saveListsToFile();
+    }
+    public static void saveListsToFile()
+    {
+        try
+        {
+            File f = new File("lists.out");
+            FileOutputStream fs = new FileOutputStream(f);
+            ObjectOutputStream stream = new ObjectOutputStream(fs);
+            stream.writeObject(allSavedLists);
+            stream.writeObject(allHistoryLists);
+        }
+        catch (Exception ex)
+        {
+            // do nothing.
+        }
+
+    }
+    public static void loadListsFromFile()
+    {
+        try
+        {
+            File f = new File("lists.out");
+            FileInputStream fs = new FileInputStream(f);
+            ObjectInputStream stream = new ObjectInputStream(fs);
+            allSavedLists = (ArrayList<Map<Product,Integer>>) stream.readObject();
+            allHistoryLists = (ArrayList<Map<Product,Integer>>) stream.readObject();
+        }
+        catch (Exception ex)
+        {
+            // do nothing.
+        }
     }
 }

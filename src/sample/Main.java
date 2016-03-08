@@ -45,6 +45,7 @@ public class Main extends Application {
         //Shopping cart
         FXMLLoader fxmlLoader_2 = new FXMLLoader();
         Pane cart = fxmlLoader_2.load(getClass().getResource("Cart.fxml").openStream());
+        cart.setOnMousePressed(e->storeController.setVisibleListView(false));
         cartController = (CartController) fxmlLoader_2.getController();
         cart.setPrefHeight(root.getHeight());
         cart.setLayoutX(0);
@@ -75,12 +76,14 @@ public class Main extends Application {
         //Arrange all the panes
         Node[] children = {storeFront,cart,checkOut,purchaseCompletePane};
         root.getChildren().addAll(children);
+        Utils.loadListsFromFile();
     }
 
     private static boolean inShop = true;
 
     public static void toggleView()
     {
+        storeController.setVisibleListView(false);
         if(inShop)
         {
             gotoCheckout();
@@ -93,26 +96,50 @@ public class Main extends Application {
         }
     }
 
+    private static double calculateSpeed(double progress)
+    {
+        //simple sin seams to look the best me (only tested some simple functions)
+        return Math.sin(progress*Math.PI);
+        /*
+        // second grade
+        progress = (progress-0.5)*2;
+        return 1-(progress * progress);
+        // linear
+        //return (1-Math.abs(progress-0.5)*2);
+        //return 0.5;
+         */
+    }
+
+    static boolean isMoving = false;
     public static void gotoCheckout()
     {
+        if(isMoving)return;
         Timer t = new Timer();
+        isMoving = true;
         t.schedule(new TimerTask() {
             @Override
             public void run() {
+                double progress = -root.getLayoutX()/storeFront.getPrefWidth();
                 if(-root.getLayoutX()>storeFront.getPrefWidth()){
-                    root.setLayoutX(-storeFront.getPrefWidth());
                     this.cancel();
+                    root.setLayoutX(-storeFront.getPrefWidth());
                     inShop = false;
+                    isMoving = false;
                 }
                 else
-                    root.setLayoutX(root.getLayoutX() - storeFront.getPrefWidth() / (float) 500);
+                {
+                    double speed = calculateSpeed(progress);
+                    root.setLayoutX(root.getLayoutX() + (speed+0.05) * (-storeFront.getPrefWidth()/ (float) 300));
+                }
             }
         }, 0, 1);
     }
 
     public static void gotoStore()
     {
+        if(isMoving)return;
         Timer t = new Timer();
+        isMoving = true;
         t.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -121,12 +148,12 @@ public class Main extends Application {
                     this.cancel();
                     root.setLayoutX(0);
                     inShop = true;
+                    isMoving = false;
                 }
                 else
                 {
-                    double speed = (1-Math.abs(progress-0.5)*2);
-                    System.out.println(speed);
-                    root.setLayoutX(root.getLayoutX() + (speed+0.1) * (storeFront.getPrefWidth()/ (float) 250));
+                    double speed = calculateSpeed(progress);
+                    root.setLayoutX(root.getLayoutX() + (speed+0.1) * (storeFront.getPrefWidth()/ (float) 300));
                 }
             }
         }, 0, 1);

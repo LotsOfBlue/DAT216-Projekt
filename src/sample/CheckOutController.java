@@ -10,8 +10,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
+import java.util.NoSuchElementException;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class CheckOutController implements Initializable
 {
@@ -51,6 +57,7 @@ public class CheckOutController implements Initializable
         phoneError.setText("");
         cardError.setText("");
         cvcError.setText("");
+        loadInfo();
     }
 
     public void performPayment(ActionEvent event) {
@@ -63,10 +70,50 @@ public class CheckOutController implements Initializable
         phoneError.setText("");
         cardError.setText("");
         cvcError.setText("");
-
         //Check if the fields contain valid info
         if(fieldsValid()) {
+            Utils.newHistoryList();
+            saveInfo();
             Main.purchaseComplete();
+        }
+    }
+    void saveInfo()
+    {
+        try
+        {
+            File f = new File("userInfo.txt");
+            PrintWriter writer = new PrintWriter(f);
+            writer.println(firstNameField.getText());
+            writer.println(lastNameField.getText());
+            writer.println(addressField.getText());
+            writer.println(postcodeField.getText());
+            writer.println(locationField.getText());
+            writer.println(phoneField.getText());
+            writer.close();
+        }
+        catch (Exception ex)
+        {
+            // do nothing
+        }
+    }
+    final String userDataFilePath = "userInfo.txt";
+    void loadInfo()
+    {
+        try
+        {
+            File f = new File("userInfo.txt");
+            Scanner s = new Scanner(f);
+            firstNameField.setText(s.nextLine());
+            lastNameField.setText(s.nextLine());
+            addressField.setText(s.nextLine());
+            postcodeField.setText(s.nextLine());
+            locationField.setText(s.nextLine());
+            phoneField.setText(s.nextLine());
+
+        }
+        catch (Exception ex)
+        {
+            //do nothing
         }
     }
 
