@@ -8,13 +8,22 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="304.0" prefWidth="350.0" style="-fx-background-color: #ffffffff; -fx-border-image-width: 2; -fx-border-color: #000000ff;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ListPopup">
    <children>
-      <Button fx:id="save_button" layoutX="201.0" layoutY="250.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" text="Spara Listan" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-6.0" layoutY="34.0" prefHeight="51.0" prefWidth="366.0" text="Namnge Listan" AnchorPane.leftAnchor="-6.0" AnchorPane.rightAnchor="6.0">
+      <Button fx:id="save_button" layoutX="201.0" layoutY="250.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #00B474;" text="Spara" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="35.0" prefHeight="51.0" prefWidth="275.0" text="Namnge Listan" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="25.0">
          <font>
             <Font name="Trebuchet MS" size="36.0" />
          </font>
       </Label>
-      <TextField fx:id="name" layoutX="47.0" layoutY="127.0" prefHeight="25.0" prefWidth="275.0" promptText="Listans Namn" />
-      <Button fx:id="cancel_button" layoutX="27.0" layoutY="250.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" text="Avbryt" />
+      <TextField fx:id="name" layoutX="38.0" layoutY="132.0" prefHeight="25.0" prefWidth="275.0" promptText="Listans Namn">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+      <Button fx:id="cancel_button" layoutX="27.0" layoutY="250.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: FF5261;" text="Avbryt" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
    </children>
 </AnchorPane>
