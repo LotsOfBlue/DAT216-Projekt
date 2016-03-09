@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
+import javax.rmi.CORBA.Util;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -74,6 +75,8 @@ public class CheckOutController implements Initializable
             Utils.newHistoryList(d.getDate() + "/" + d.getMonth()+"-"+(d.getYear()+1900));
             saveInfo();
             Main.purchaseComplete();
+            Utils.backendPurchase();
+
         }
     }
     void saveInfo()

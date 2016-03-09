@@ -182,7 +182,8 @@ public class Main extends Application {
         launch(args);
     }
 
-    public static void purchaseComplete() {
+    public static void purchaseComplete()
+    {
         gotoPurchaseComplete();
     }
 

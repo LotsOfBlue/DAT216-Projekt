@@ -24,11 +24,15 @@ public class Utils
     public static List<savedList> allSavedLists = new ArrayList<>();
     public static List<savedList> allHistoryLists = new ArrayList<>();
 
-    public static void removeItemFromCart(Parent item) {
-        Main.cartController.itemPane.getChildren().remove(item);
-        CartItemView cartItem = (CartItemView) item;
-        Main.cartController.amount_label.setText("" + (Integer.parseInt(Main.cartController.amount_label.getText()) - cartItem.amount));
-        Main.cartController.sum_label.setText("" + (Double.parseDouble(Main.cartController.sum_label.getText()) - cartItem.value));
+    public static void backendPurchase()
+    {
+        ShoppingCart cart = dataHandler.getShoppingCart();
+        cart.clear();
+        for(Map.Entry<Product,Integer> prod: CartController.cartProducts.entrySet())
+        {
+            cart.addProduct(prod.getKey(),prod.getValue());
+        }
+        dataHandler.placeOrder(true);
     }
 
     public static void setToList(Pane pane, List<Product> products, String name)
