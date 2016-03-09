@@ -31,12 +31,11 @@ public class Utils
         Main.cartController.sum_label.setText("" + (Double.parseDouble(Main.cartController.sum_label.getText()) - cartItem.value));
     }
 
-    public static void setToValuesOfCategory(Pane pane, Category category, String str)
+    public static void setToList(Pane pane, List<Product> products, String name)
     {
         Main.storeController.AreaParent.setVvalue(0);
         pane.getChildren().clear();
         VBox box = new VBox();
-        List<Product> products = getProductsFromCategory(category);
         for(Product p: products)
         {
             ProductView view = new ProductView(p,780);
@@ -44,27 +43,34 @@ public class Utils
             box.getChildren().add(new Separator());
         }
         pane.getChildren().add(box);
-        Main.storeController.currentCategory.setText(str);
+        Main.storeController.currentCategory.setText(name);
         pane.setPrefHeight(box.getPrefHeight());
+    }
+    public static void setToMap(Pane pane, Map<Product,Integer> products, String name)
+    {
+        Main.storeController.AreaParent.setVvalue(0);
+        pane.getChildren().clear();
+        VBox box = new VBox();
+        for(Map.Entry<Product, Integer> entry : products.entrySet())
+        {
+            ProductView view = new ProductView(entry.getKey(),780,entry.getValue());
+            box.getChildren().add(view);
+            box.getChildren().add(new Separator());
+        }
+        pane.getChildren().add(box);
+        Main.storeController.currentCategory.setText(name);
+        pane.setPrefHeight(box.getPrefHeight());
+    }
 
+    public static void setToValuesOfCategory(Pane pane, Category category, String name)
+    {
+        setToList(pane, getProductsFromCategory(category),name);
     }
 
     public static void setToValuesFromSearch(Pane pane, String search)
     {
-        Main.storeController.AreaParent.setVvalue(0);
-        //Don't search if the input is just whitespace
         if (!search.equals("")) {
-            pane.getChildren().clear();
-            VBox box = new VBox();
-            List<Product> products = dataHandler.findProducts(search);
-            for(Product p: products)
-			{
-				ProductView view = new ProductView(p,780);
-				box.getChildren().add(view);
-				box.getChildren().add(new Separator());
-			}
-            pane.getChildren().add(box);
-            Main.storeController.currentCategory.setText("Sökresultat");
+            setToList(pane, dataHandler.findProducts(search),"Sökresultat");
         }
         Main.storeController.searchField.clear();
     }

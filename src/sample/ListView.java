@@ -5,6 +5,7 @@ import javafx.scene.control.Separator;
 import javafx.scene.layout.Pane;
 import se.chalmers.ait.dat215.project.Product;
 
+import javax.rmi.CORBA.Util;
 import java.io.IOException;
 import java.util.Map;
 
@@ -24,6 +25,7 @@ public class ListView extends Pane
             ListController controller = (ListController) fxmlLoader.getController();
             controller.ListName.setText(name);
             controller.addButton.setOnAction(e->addListToCart());
+            controller.view_button.setOnAction(e-> Utils.setToMap(Main.storeController.ItemArea,backing_map,"Lista: "+controller.ListName.getText()));
             setMinHeight(pane.getMinHeight());
             getChildren().add(pane);
         }

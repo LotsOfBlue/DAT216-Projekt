@@ -17,6 +17,10 @@ public class ListController implements Initializable
     public Label ListName;
     @FXML
     public Button addButton;
+
+    @FXML
+    public Button view_button;
+
     @FXML
     public Pane main_pane;
 

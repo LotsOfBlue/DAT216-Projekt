@@ -15,9 +15,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
-import java.util.NoSuchElementException;
-import java.util.ResourceBundle;
-import java.util.Scanner;
+import java.util.*;
 
 public class CheckOutController implements Initializable
 {
@@ -72,7 +70,8 @@ public class CheckOutController implements Initializable
         cvcError.setText("");
         //Check if the fields contain valid info
         if(fieldsValid()) {
-            Utils.newHistoryList("my history list :)");
+            Date d = new Date();
+            Utils.newHistoryList(d.getDate() + "/" + d.getMonth()+"-"+(d.getYear()+1900));
             saveInfo();
             Main.purchaseComplete();
         }

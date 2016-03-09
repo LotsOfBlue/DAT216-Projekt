@@ -15,7 +15,7 @@ public class ProductView extends HBox
 {
     private Product product;
 
-    public ProductView (Product product,double size)
+    public ProductView (Product product,double size,int amount)
     {
         this.product = product;
         try
@@ -23,6 +23,7 @@ public class ProductView extends HBox
             FXMLLoader fxmlLoader = new FXMLLoader();
             Pane pane = fxmlLoader.load(getClass().getResource("ProductItem.fxml").openStream());
             ItemController controller = (ItemController) fxmlLoader.getController();
+            controller.spinner.getValueFactory().setValue(amount);
             controller.nameLabel.setText(product.getName());
             controller.singlePrice.setText(Double.toString(product.getPrice()) + " " + product.getUnit());
             controller.addButton.setOnAction(e->Main.cartController.addProduct(product, (Integer)controller.spinner.getValue()));
@@ -36,7 +37,10 @@ public class ProductView extends HBox
             System.out.println("couldn't load it yoo.");
         }
     }
-
+    public ProductView (Product product,double size)
+    {
+        this(product,size,1);
+    }
     public Product getProduct(){
         return product;
     }
