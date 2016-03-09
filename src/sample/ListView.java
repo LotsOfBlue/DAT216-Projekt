@@ -35,6 +35,7 @@ public class ListView extends Pane
         }
 
     }
+
     public void addListToCart()
     {
         for(Map.Entry<Product, Integer> entry : backing_map.entrySet()) {
