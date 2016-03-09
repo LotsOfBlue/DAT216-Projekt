@@ -2,6 +2,8 @@ package sample;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -10,6 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.awt.event.PaintEvent;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -32,7 +35,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         //Parent root = FXMLLoader.load(getClass().getResource("storefront.fxml"));
-
 
         root = new HBox();
 
@@ -104,6 +106,20 @@ public class Main extends Application {
         children_ = children;
         root.getChildren().addAll(children);
         Utils.loadListsFromFile();
+
+
+
+        // since javafx can't handle updating the window on it's own
+        // and and there is no repaint method
+        // we need to trick it into do the right thing.
+        // otherwise when we lose focus we might get an old view.
+        // this is ridiculous...
+        mainScene.focusOwnerProperty().addListener(e ->
+        {
+            root.setLayoutX(root.getLayoutX() - 1);
+            root.setLayoutX(root.getLayoutX() + 1);
+        });
+
     }
 
 
@@ -124,7 +140,6 @@ public class Main extends Application {
     }
     public static void removePopUp()
     {
-        System.out.println(popup);
         if(popup!= null)
         {
             realRoot.getChildren().remove(popup);
@@ -203,6 +218,7 @@ public class Main extends Application {
         isMoving = true;
         activeScene = sceneIndex;
         Timer t = new Timer();
+
         t.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -210,6 +226,7 @@ public class Main extends Application {
                 double remaining = targetLayoutX-root.getLayoutX();
                 double initial = (targetLayoutX-initialLayoutX);
                 double progress = 1-(remaining/initial);
+                System.out.println(progress);
                 if(Math.signum(remaining)!=Math.signum(initial)){
                     this.cancel();
                     root.setLayoutX(targetLayoutX);
