@@ -7,24 +7,24 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PurchaseCompleteController">
    <children>
-      <Label layoutX="225.0" layoutY="88.0" text="Tack">
+      <Label layoutX="97.0" layoutY="113.0" text="Ordern lyckades!">
          <font>
-            <Font name="System Bold" size="70.0" />
+            <Font name="System Bold" size="48.0" />
          </font>
       </Label>
-      <Label layoutX="237.0" layoutY="173.0" text="för ditt köp!">
+      <Label layoutX="89.0" layoutY="173.0" text="Tack för ditt köp och välkommen åter!">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="storeButton" layoutX="14.0" layoutY="347.0" mnemonicParsing="false" text="Tillbaka till butiken" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="50.0">
+      <Button fx:id="storeButton" layoutX="14.0" layoutY="347.0" mnemonicParsing="false" style="-fx-background-color: #00A8FF;" text="Tillbaka till butiken" textFill="WHITE" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="50.0">
          <font>
-            <Font size="18.0" />
+            <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="saveButton" layoutX="470.0" layoutY="347.0" mnemonicParsing="false" text="Spara listan" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="50.0">
+      <Button fx:id="saveButton" layoutX="470.0" layoutY="347.0" mnemonicParsing="false" style="-fx-background-color: #00B474;" text="Spara listan" textFill="WHITE" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="50.0">
          <font>
-            <Font size="18.0" />
+            <Font size="20.0" />
          </font>
       </Button>
    </children>
