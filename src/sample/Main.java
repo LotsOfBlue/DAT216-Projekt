@@ -243,6 +243,7 @@ public class Main extends Application {
         }, 30, 1);
     }
 
+
     public static void resetStore() {
         cartController.clearCart();
         stage.setScene(mainScene);
