@@ -101,6 +101,8 @@ public class Main extends Application {
         Pane purchaseCompletePane = loader.load(getClass().getResource("PurchaseComplete.fxml").openStream());
         PurchaseCompleteController purchaseController = loader.getController();
 
+
+
         //Arrange all the panes
         Pane[] children = {storeFront,cart,checkOut,purchaseCompletePane};
         children_ = children;
@@ -245,5 +247,6 @@ public class Main extends Application {
         cartController.clearCart();
         stage.setScene(mainScene);
         gotoStore();
+        cartController.move_button.setText(toCheckout);
     }
 }
