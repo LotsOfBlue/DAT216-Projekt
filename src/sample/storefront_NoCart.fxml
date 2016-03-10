@@ -110,22 +110,22 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <TabPane fx:id="listsView" layoutX="21.0" layoutY="81.0" prefHeight="538.0" prefWidth="300.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000ff;" tabClosingPolicy="UNAVAILABLE">
+            <TabPane id="tabpane" fx:id="listsView" layoutX="21.0" layoutY="81.0" prefHeight="538.0" prefWidth="400.0" stylesheets="@coolstyle.css" tabClosingPolicy="UNAVAILABLE" tabMinHeight="50.0">
               <tabs>
-                <Tab fx:id="earlierPurachases" text="Tidigare Inköp">
+                <Tab fx:id="earlierPurachases" style="-fx-font-size: 20px; -fx-background-insets: 0 1 0 1,0,0;" text="Tidigare Inköp">
                      <content>
-                        <ScrollPane prefHeight="534.0" prefWidth="298.0" style="-fx-background-color: #ffffff;">
+                        <ScrollPane prefHeight="534.0" prefWidth="400.0">
                            <content>
-                              <VBox fx:id="earlierPerchasesVBox" prefHeight="504.0" prefWidth="298.0" />
+                              <VBox fx:id="earlierPerchasesVBox" prefHeight="504.0" prefWidth="398.0" styleClass="VBox" stylesheets="@coolstyle.css" />
                            </content>
                         </ScrollPane>
                      </content>
                 </Tab>
-                <Tab fx:id="savedLists" text="Sparade Inköpslistor">
+                <Tab fx:id="savedLists" style="-fx-font-size: 20px; -fx-background-insets: 0 1 0 1,0,0;" text="Sparade Inköpslistor">
                      <content>
-                        <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
+                        <ScrollPane prefHeight="534.0" prefWidth="400.0">
                            <content>
-                              <VBox fx:id="SavedListsVBox" prefHeight="488.0" prefWidth="300.0" />
+                              <VBox fx:id="SavedListsVBox" prefHeight="488.0" prefWidth="400.0" styleClass="VBox" stylesheets="@coolstyle.css" />
                            </content>
                         </ScrollPane>
                      </content>

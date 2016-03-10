@@ -1,0 +1,27 @@
+.tab-pane {
+  -fx-background-color: #F6F6F6;
+
+  -fx-tab-height: 50px;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+}
+
+.tab {
+  -fx-background-color: #EEEEEE;
+  -fx-border: 1px solid black;
+  -fx-border-radius: 5px;
+}
+
+.tab:selected{
+  -fx-background-color: #F6F6F6;
+}
+
+.tab .scroll-pane{
+  -fx-background-color: #F6F6F6 !important;
+}
+
+.tab .VBox{
+  -fx-background-color: #F6F6F6 !important;
+}
