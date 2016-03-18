@@ -142,7 +142,7 @@
                               <Font size="20.0" />
                            </font>
                         </TextField>
-                        <Button fx:id="payButton" layoutX="605.0" layoutY="565.0" mnemonicParsing="false" onAction="#performPayment" prefHeight="93.0" prefWidth="227.0" style="-fx-background-color: #00B474;" text="Betala" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="29.0">
+                        <Button fx:id="payButton" layoutX="605.0" layoutY="565.0" mnemonicParsing="false" onAction="#performPayment" prefHeight="93.0" prefWidth="362.0" style="-fx-background-color: #00B474;" text="Betala" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="29.0">
                            <font>
                               <Font size="64.0" />
                            </font>
