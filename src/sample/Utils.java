@@ -57,7 +57,7 @@ public class Utils
         VBox box = new VBox();
         for(Map.Entry<Product, Integer> entry : products.entrySet())
         {
-            ProductView view = new ProductView(entry.getKey(),780,entry.getValue());
+            ProductView view = new ProductView(entry.getKey(),1300,entry.getValue());
             box.getChildren().add(view);
             box.getChildren().add(new Separator());
         }
