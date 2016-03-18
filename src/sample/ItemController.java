@@ -28,8 +28,6 @@ public class ItemController implements Initializable
     @FXML
     public Spinner spinner;
     @FXML
-    public Text description;
-    @FXML
     public Label totalPrice;
 
     @Override
