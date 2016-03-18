@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="1620.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CheckOutController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1620.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CheckOutController">
    <children>
       <VBox layoutX="3.0" layoutY="1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -24,12 +24,12 @@
                <children>
                   <Label alignment="BOTTOM_CENTER" layoutY="14.0" prefHeight="74.0" prefWidth="556.0" text="Kassan" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
                      <font>
-                        <Font name="System Bold" size="36.0" />
+                        <Font name="Trebuchet MS" size="54.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <HBox>
+            <HBox prefHeight="923.0" prefWidth="1620.0">
                <children>
                   <AnchorPane fx:id="left_split" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="646.0" prefWidth="998.0">
                      <children>
@@ -142,9 +142,9 @@
                               <Font size="20.0" />
                            </font>
                         </TextField>
-                        <Button fx:id="payButton" layoutX="605.0" layoutY="565.0" mnemonicParsing="false" onAction="#performPayment" prefHeight="50.0" prefWidth="275.0" style="-fx-background-color: #00B474;" text="Betala" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="29.0">
+                        <Button fx:id="payButton" layoutX="605.0" layoutY="565.0" mnemonicParsing="false" onAction="#performPayment" prefHeight="93.0" prefWidth="227.0" style="-fx-background-color: #00B474;" text="Betala" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="29.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="64.0" />
                            </font>
                            <padding>
                               <Insets left="20.0" right="20.0" />
