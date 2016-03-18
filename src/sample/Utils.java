@@ -42,7 +42,7 @@ public class Utils
         VBox box = new VBox();
         for(Product p: products)
         {
-            ProductView view = new ProductView(p,780);
+            ProductView view = new ProductView(p,1300);
             box.getChildren().add(view);
             box.getChildren().add(new Separator());
         }

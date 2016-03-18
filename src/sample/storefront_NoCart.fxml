@@ -22,22 +22,22 @@
          <children>
             <AnchorPane layoutX="712.0" layoutY="100.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" prefWidth="1372.0" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label fx:id="currentCategory" alignment="BOTTOM_LEFT" layoutX="339.0" layoutY="13.0" prefHeight="74.0" prefWidth="624.0" text="Välkommen!" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="339.0" AnchorPane.topAnchor="13.0">
+                  <Label fx:id="currentCategory" alignment="BOTTOM_LEFT" layoutX="350.0" layoutY="12.0" prefHeight="74.0" prefWidth="624.0" text="Välkommen!" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="12.0">
                      <font>
-                        <Font name="Trebuchet MS" size="36.0" />
+                        <Font name="Trebuchet MS" size="54.0" />
                      </font>
                   </Label>
-                  <Button fx:id="list_button1" layoutX="14.0" layoutY="36.0" mnemonicParsing="false" onAction="#toggleListsView" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #00A8FF;" text="Shoppinglistor" textFill="WHITE" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="36.0">
+                  <Button fx:id="list_button1" layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#toggleListsView" prefHeight="74.0" prefWidth="320.0" style="-fx-background-color: #00B474;" text="Shoppinglistor" textFill="WHITE" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="12.0">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="searchField" onAction="#search" prefHeight="55.0" prefWidth="280.0" promptText="Sök efter en vara här..." AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0">
+                  <TextField fx:id="searchField" layoutX="679.0" layoutY="24.0" onAction="#search" prefHeight="50.0" prefWidth="666.0" promptText="Sök efter en vara här..." AnchorPane.bottomAnchor="26.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="24.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="searchButton" layoutX="984.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: #00B474;" text="Sök" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                  <Button fx:id="searchButton" layoutX="1318.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: #00B474;" text="Sök" textFill="WHITE" AnchorPane.bottomAnchor="26.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -46,49 +46,49 @@
             </AnchorPane>
             <VBox layoutX="14.0" layoutY="100.0" prefHeight="1005.0" prefWidth="320.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="-21.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="100.0">
                <children>
-                  <Button fx:id="fishButton" layoutX="10.0" layoutY="310.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" prefWidth="320.0" style="-fx-background-color: #00B474;" text="Fisk" textFill="WHITE">
+                  <Button fx:id="fishButton" layoutX="10.0" layoutY="310.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" prefWidth="320.0" style="-fx-background-color: #f2f2f2f2;" text="Fisk">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
                   <Separator prefWidth="200.0" />
-                  <Button fx:id="drinkButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #00B474;" text="Dryck" textFill="WHITE">
+                  <Button fx:id="drinkButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #f2f2f2f2;" text="Dryck">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
                   <Separator layoutX="10.0" layoutY="313.0" prefWidth="200.0" />
-                  <Button fx:id="carbsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #00B474;" text="Kolhydrater" textFill="WHITE">
+                  <Button fx:id="carbsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #f2f2f2f2;" text="Kolhydrater">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
                   <Separator layoutX="10.0" layoutY="388.0" prefWidth="200.0" />
-                  <Button fx:id="fruitButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #00B474;" text="Frukt &amp; grönt" textFill="WHITE">
+                  <Button fx:id="fruitButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #f2f2f2f2;" text="Frukt &amp; grönt">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
                   <Separator layoutX="10.0" layoutY="463.0" prefWidth="200.0" />
-                  <Button fx:id="breadButton" layoutX="10.0" layoutY="235.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #00B474;" text="Bröd" textFill="WHITE">
+                  <Button fx:id="breadButton" layoutX="10.0" layoutY="235.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #f2f2f2f2;" text="Bröd">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
                   <Separator layoutX="10.0" layoutY="616.0" prefWidth="200.0" />
-                  <Button fx:id="spiceButton" layoutX="10.0" layoutY="385.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #00B474;" text="Kryddor &amp; örter" textFill="WHITE">
+                  <Button fx:id="spiceButton" layoutX="10.0" layoutY="385.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #f2f2f2f2;" text="Kryddor &amp; örter">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
                   <Separator layoutX="10.0" layoutY="613.0" prefWidth="200.0" />
-                  <Button fx:id="sweetsButton" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #00B474;" text="Sötsaker" textFill="WHITE">
+                  <Button fx:id="sweetsButton" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #f2f2f2f2;" text="Sötsaker">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
                   <Separator layoutX="10.0" layoutY="85.0" prefWidth="200.0" />
-                  <Button fx:id="meatButton" layoutX="10.0" layoutY="160.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #00B474;" text="Kött" textFill="WHITE">
+                  <Button fx:id="meatButton" layoutX="10.0" layoutY="160.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #f2f2f2f2;" text="Kött">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -105,7 +105,7 @@
       </AnchorPane>
       <AnchorPane fx:id="shoppingListView" onMousePressed="#toggleListsView">
          <children>
-            <Button fx:id="list_button" layoutX="14.0" layoutY="35.0" mnemonicParsing="false" onAction="#toggleListsView" prefHeight="51.0" prefWidth="300.0" style="-fx-background-color: #00A8FF;" text="Shoppinglistor" textFill="WHITE" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="35.0">
+            <Button fx:id="list_button" layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#toggleListsView" prefHeight="74.0" prefWidth="320.0" style="-fx-background-color: #00B474;" text="Shoppinglistor" textFill="WHITE" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="12.0">
                <font>
                   <Font size="24.0" />
                </font>
@@ -114,7 +114,7 @@
               <tabs>
                 <Tab fx:id="earlierPurachases" style="-fx-font-size: 20px; -fx-background-insets: 0 1 0 1,0,0;" text="Tidigare Inköp">
                      <content>
-                        <ScrollPane prefHeight="534.0" prefWidth="400.0">
+                        <ScrollPane prefHeight="477.0" prefWidth="400.0">
                            <content>
                               <VBox fx:id="earlierPerchasesVBox" prefHeight="504.0" prefWidth="398.0" styleClass="VBox" stylesheets="@coolstyle.css" />
                            </content>
@@ -125,7 +125,7 @@
                      <content>
                         <ScrollPane prefHeight="534.0" prefWidth="400.0">
                            <content>
-                              <VBox fx:id="SavedListsVBox" prefHeight="488.0" prefWidth="400.0" styleClass="VBox" stylesheets="@coolstyle.css" />
+                              <VBox fx:id="SavedListsVBox" prefHeight="455.0" prefWidth="400.0" styleClass="VBox" stylesheets="@coolstyle.css" />
                            </content>
                         </ScrollPane>
                      </content>
