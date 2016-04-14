@@ -6,6 +6,10 @@
           <option name="url" value="https://github.com/ThatNearsightedGuy/DAT216-Projekt.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/Swim0n/2D-shooter.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="C:\Users\Simon\IdeaProjects" />
